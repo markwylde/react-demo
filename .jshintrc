@@ -77,6 +77,8 @@
     "yui": false,
 
     "globals": [
+      "module",
+      "__dirname",
       "angular",
       "_",
       "moment",
@@ -96,6 +98,8 @@
     ],
 
     "predef": [
+      "module",
+      "__dirname",
       "angular",
       "_",
       "moment",
