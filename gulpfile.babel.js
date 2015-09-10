@@ -7,14 +7,15 @@ import webpack from 'webpack';
 gulp.task('eslint', function() {
   return gulp.src('./src/**/*.jsx')
   .pipe(eslint({ configFile: '.eslintrc' }))
-  .pipe(eslint.formatEach('compact', process.stderr));
+  .pipe(eslint.format('stylish'))
+  .pipe(eslint.failOnError());
 });
 
 gulp.task('cleanDistFolder', function(callback) {
   rimraf('./dist/', callback);
 });
 
-gulp.task('webpack', ['cleanDistFolder'], function(callback) {
+gulp.task('webpack', ['eslint', 'cleanDistFolder'], function(callback) {
   let webpackConfig = require('./webpack_dist.config.js');
 
   webpack(webpackConfig, function(err, stats) {
@@ -34,4 +35,4 @@ gulp.task('copyIndexFile', function() {
 });
 
 gulp.task('lint', ['eslint']);
-gulp.task('build', ['webpack', 'copyIndexFile']);
+gulp.task('build', ['eslint', 'webpack', 'copyIndexFile']);
