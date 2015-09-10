@@ -1,5 +1,2 @@
-define(function(require) {
-  var Dispatcher = require('flux').Dispatcher;
-
-  return new Dispatcher();
-});
+import { Dispatcher } from 'flux';
+export default new Dispatcher();

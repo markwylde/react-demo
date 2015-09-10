@@ -3,7 +3,7 @@ import '../node_modules/font-awesome/css/font-awesome.css';
 
 import './assets/scss/core.scss';
 
-import { HomePage } from './views/HomePage';
+import { BillPage } from './views/BillPage';
 import React from 'react';
 
-React.render(<HomePage />, document.body);
+React.render(<BillPage />, document.body);

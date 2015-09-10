@@ -1,14 +1,15 @@
 import React from 'react';
 
-// import PropertyActions from '../../actions/PropertyActions.js';
+import BillActions from '../actions/BillActions.js';
 
-export class HomePage extends React.Component {
+export class BillPage extends React.Component {
 
   constructor() {
     super();
     this.state = {
       test: 1
     };
+    BillActions.generateBill();
   }
 
   add(amount) {
