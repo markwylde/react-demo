@@ -15,7 +15,14 @@
     "document": false,
     "navigator": false,
     "window": false,
-    "define": false
+    "define": false,
+    "casper": false,
+    "describe": false,
+    "it": false,
+    "before": false,
+    "beforeEach": false,
+    "after": false,
+    "afterEach": false
   },
 
   "plugins": ["eslint-plugin-react"],

@@ -1,5 +1,4 @@
 {
-
     "maxerr": 50,
 
     "bitwise": true,
@@ -77,7 +76,41 @@
     "wsh": false,
     "yui": false,
 
+    "globals": [
+      "angular",
+      "_",
+      "moment",
+      "globalConfig",
+      "$",
+      "casper",
+      "require",
+      "requirejs",
+      "define",
+      "process",
+      "describe",
+      "it",
+      "before",
+      "beforeEach",
+      "after",
+      "afterEach"
+    ],
 
-    "globals": ["angular", "_", "moment", "globalConfig", "$", "require", "requirejs", "define", "process"],
-    "predef": ["angular", "_", "moment", "globalConfig", "$", "require", "requirejs", "define", "process"]
+    "predef": [
+      "angular",
+      "_",
+      "moment",
+      "globalConfig",
+      "$",
+      "casper",
+      "require",
+      "requirejs",
+      "define",
+      "process",
+      "describe",
+      "it",
+      "before",
+      "beforeEach",
+      "after",
+      "afterEach"
+    ]
 }

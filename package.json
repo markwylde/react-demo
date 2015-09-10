@@ -3,7 +3,9 @@
   "private": true,
   "version": "0.0.1",
   "description": "A demo application to show react",
-  "author": ["mark.wylde@verl.com"],
+  "author": [
+    "mark.wylde@verl.com"
+  ],
   "devDependencies": {
     "css-reset": "0.0.1",
     "ejs": "0.8.8",
@@ -41,6 +43,13 @@
   "scripts": {
     "build": "node build",
     "lint": "./node_modules/.bin/gulp lint",
-    "dev": "webpack-dev-server --hot --inline"
+    "dev": "webpack-dev-server --hot --inline",
+    "unit_tests": "./node_modules/.bin/mocha src/**/*.unitspec.js --compilers js:babel-core/register",
+    "e2e_tests": "casperjs test test/can-twitter-be-opened.js"
+  },
+  "dependencies": {
+    "casperjs": "^1.1.0-beta3",
+    "chai": "^3.2.0",
+    "mocha": "^2.3.2"
   }
 }
