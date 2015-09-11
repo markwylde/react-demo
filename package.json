@@ -51,7 +51,7 @@
   },
   "dependencies": {
     "bootstrap": "^3.3.5",
-    "casperjs": "*",
+    "casperjs": "1.1.0-beta3",
     "chai": "^3.2.0",
     "chai-spies": "^0.7.0",
     "gulp-util": "^3.0.6",
