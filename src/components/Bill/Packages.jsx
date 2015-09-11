@@ -3,6 +3,12 @@ import StringManipulation from '../../services/StringManipulation';
 
 export default class Packages extends React.Component {
 
+  static propTypes() {
+    return {
+      package: React.PropTypes.bool.isRequired
+    };
+  }
+
   static defaultProps() {
     return {
       package: null
@@ -14,9 +20,9 @@ export default class Packages extends React.Component {
       <div>
         <h3>Your Package</h3>
         <div className='row subscription'>
-        { this.props.package.subscriptions.map((subscription, idx) => {
+        {this.props.package.subscriptions.map((subscription, idx) => {
           return (
-              <div key={idx} className='col-sm-4'>
+              <div className='col-sm-4' key={idx} >
                 <div className='alert alert-success'>
                   <p>{subscription.name}</p>
                   <p><strong>
@@ -37,3 +43,5 @@ export default class Packages extends React.Component {
   }
 
 }
+
+Packages.displayName = 'Packages';

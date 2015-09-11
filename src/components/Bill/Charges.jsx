@@ -2,6 +2,12 @@ import React from 'react';
 
 export default class Charges extends React.Component {
 
+  static propTypes() {
+    return {
+      charges: React.PropTypes.bool.isRequired
+    };
+  }
+
   static defaultProps() {
     return {
       charges: null
@@ -12,8 +18,8 @@ export default class Charges extends React.Component {
     return (
       <div className='charges'>
         <h3>Your Charges</h3>
-        <p>This month you made a total of <strong>{ this.props.charges.calls.length }</strong> calls
-        which came to a total of <strong>&pound;{ this.props.charges.total }</strong></p>
+        <p>This month you made a total of <strong>{this.props.charges.calls.length}</strong> calls
+        which came to a total of <strong>&pound;{this.props.charges.total}</strong></p>
       <table className='table table-bordered table-striped charges__table'>
           <thead>
             <tr>
@@ -23,7 +29,7 @@ export default class Charges extends React.Component {
             </tr>
           </thead>
           <tbody>
-            { this.props.charges.calls.map((call, idx) => {
+            {this.props.charges.calls.map((call, idx) => {
               return (
                 <tr key={idx}>
                   <td>{call.called}</td>
@@ -39,3 +45,5 @@ export default class Charges extends React.Component {
   }
 
 }
+
+Charges.displayName = 'Charges';

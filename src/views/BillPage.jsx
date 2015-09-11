@@ -18,18 +18,18 @@ export default class BillPage extends React.Component {
     BillActions.generateBill();
   }
 
-  _onChange() {
-    this.setState({
-      bill: BillStore.getBill()
-    });
-  }
-
   componentDidMount() {
     BillStore.addChangeListener(this._onChange.bind(this));
   }
 
   componentWillUnmount() {
     BillStore.removeChangeListener(this._onChange.bind(this));
+  }
+
+  _onChange() {
+    this.setState({
+      bill: BillStore.getBill()
+    });
   }
 
   render() {
@@ -56,3 +56,5 @@ export default class BillPage extends React.Component {
   }
 
 }
+
+BillPage.displayName = 'Bill Page';

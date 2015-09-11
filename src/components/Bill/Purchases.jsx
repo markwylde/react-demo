@@ -3,6 +3,12 @@ import StringManipulation from '../../services/StringManipulation';
 
 export default class Charges extends React.Component {
 
+  static propTypes() {
+    return {
+      purchases: React.PropTypes.bool.isRequired
+    };
+  }
+
   static defaultProps() {
     return {
       purchases: null
@@ -34,10 +40,10 @@ export default class Charges extends React.Component {
       <div className='purchases'>
         <h3>Your Purchases</h3>
         <p>
-          This month you rented <strong>{ rentals.length }</strong>
+          This month you rented <strong>{rentals.length}</strong>
           {' ' + StringManipulation.pluralise('movie', rentals.length)} and
-          bought <strong>{ this.props.purchases.buyAndKeep.length }</strong> to keep. This cost
-          you a total of <strong>&pound;{ this.props.purchases.total }</strong>.
+          bought <strong>{this.props.purchases.buyAndKeep.length}</strong> to keep. This cost
+          you a total of <strong>&pound;{this.props.purchases.total}</strong>.
         </p>
         <table className='table table-bordered table-striped purchases__table'>
           <thead>
@@ -57,3 +63,5 @@ export default class Charges extends React.Component {
   }
 
 }
+
+Charges.displayName = 'Charges';

@@ -35,7 +35,6 @@ describe('Component:Charges', function() {
 
   });
 
-
   it('should populate the calls table correctly', function() {
     React.render(<Charges charges={sampleCharges} />, document.body);
 

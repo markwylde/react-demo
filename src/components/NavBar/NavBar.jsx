@@ -10,7 +10,7 @@ export default class NavBar extends React.Component {
           <Nav navbar>
             <NavItem eventKey={1} href='http://www.markwylde.co.uk'>Home</NavItem>
             <NavItem eventKey={1} href='https://github.com/markwylde/react-demo'>Github</NavItem>
-            <NavDropdown eventKey={3} title='Statements' id='collapsible-nav-dropdown'>
+            <NavDropdown eventKey={3} id='collapsible-nav-dropdown' title='Statements'>
               <MenuItem eventKey='1'>January</MenuItem>
             </NavDropdown>
           </Nav>
@@ -20,3 +20,5 @@ export default class NavBar extends React.Component {
   }
 
 }
+
+NavBar.displayName = 'Nav Bar';

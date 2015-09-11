@@ -11,3 +11,5 @@ export default class Loading extends React.Component {
   }
 
 }
+
+Loading.displayName = 'Loading';
