@@ -3,7 +3,14 @@
     "unused-ignores": [
       "mocha",
       "ejs",
-      "babel-istanbul"
+      "babel-istanbul",
+      "mocha-lcov-reporter",
+      "casperjs",
+      "eslint-plugin-react",
+      "blanket",
+      "bootstrap",
+      "chai-spies",
+      "react-bootstrap"
     ]
   }
 }

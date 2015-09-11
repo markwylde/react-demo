@@ -80,7 +80,6 @@
     "mocha-lcov-reporter": "0.0.2",
     "react-bootstrap": "^0.25.1",
     "rewire": "^2.3.4",
-    "rimraf": "^2.4.3",
-    "sinon-chai": "^2.8.0"
+    "rimraf": "^2.4.3"
   }
 }
