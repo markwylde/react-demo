@@ -1,17 +1,20 @@
 import React from 'react';
-import { Navbar, Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
+import { Navbar, Nav, NavItem, NavDropdown, CollapsibleNav, MenuItem } from 'react-bootstrap';
 
 export default class NavBar extends React.Component {
 
   render() {
     return (
-      <Navbar brand='My Statements'>
-        <Nav>
-          <NavItem eventKey={1} href='http://www.markwylde.co.uk'>Home</NavItem>
-          <NavDropdown eventKey={3} title='Statements' id='basic-nav-dropdown'>
-            <MenuItem eventKey='1'>January</MenuItem>
-          </NavDropdown>
-        </Nav>
+      <Navbar brand='Your Statement' toggleNavKey={0}>
+        <CollapsibleNav eventKey={0}> {/* This is the eventKey referenced */}
+          <Nav navbar>
+            <NavItem eventKey={1} href='http://www.markwylde.co.uk'>Home</NavItem>
+            <NavItem eventKey={1} href='https://github.com/markwylde/react-demo'>Github</NavItem>
+            <NavDropdown eventKey={3} title='Statements' id='collapsible-nav-dropdown'>
+              <MenuItem eventKey='1'>January</MenuItem>
+            </NavDropdown>
+          </Nav>
+        </CollapsibleNav>
       </Navbar>
     );
   }
