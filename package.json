@@ -11,7 +11,8 @@
     "lint": "./node_modules/.bin/gulp lint",
     "dev": "webpack-dev-server --hot --inline --config webpack_dev.config.js",
     "unit_tests": "./node_modules/.bin/mocha src/**/*.unitspec.js --compilers js:babel-core/register --recursive src",
-    "e2e_tests": "./node_modules/.bin/casperjs test test/can-twitter-be-opened.js"
+    "e2e_tests": "./node_modules/.bin/casperjs test test/can-twitter-be-opened.js",
+    "test": "npm run lint && npm run unit_tests"
   },
   "devDependencies": {
     "autobind-decorator": "^1.3.2",
