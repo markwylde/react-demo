@@ -42,7 +42,7 @@
     "node-sass": "^3.2.0",
     "react": "^0.13.3",
     "react-hot-loader": "^1.2.8",
-    "request": "*",
+    "request": "^2.61.0",
     "sass-loader": "^2.0.1",
     "style-loader": "^0.12.3",
     "url-loader": "^0.5.6",
