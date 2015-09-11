@@ -14,9 +14,11 @@
     "build": "./node_modules/.bin/gulp build",
     "lint": "./node_modules/.bin/gulp lint",
     "dev": "webpack-dev-server --hot --inline --config webpack_dev.config.js",
-    "unit_tests": "./node_modules/.bin/babel-istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- src/**/*.unitspec.js --compilers js:babel-core/register --recursive src && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
+    "unit_tests": "./node_modules/.bin/babel-istanbul cover ./node_modules/mocha/bin/_mocha -- src/**/*.unitspec.js --compilers js:babel-core/register --recursive src",
+    "unit_tests_travis": "./node_modules/.bin/babel-istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- src/**/*.unitspec.js --compilers js:babel-core/register --recursive src && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
     "e2e_tests": "./node_modules/.bin/casperjs test test/can-twitter-be-opened.js",
-    "test": "npm run lint && npm run unit_tests"
+    "test": "npm run lint && npm run unit_tests",
+    "test_travis": "npm run lint && npm run unit_tests_travis"
   },
   "config": {
     "blanket": {
