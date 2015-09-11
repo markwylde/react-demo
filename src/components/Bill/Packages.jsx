@@ -12,7 +12,7 @@ export default class Packages extends React.Component {
   render() {
     return (
       <div>
-        <h2>Your Package</h2>
+        <h3>Your Package</h3>
         <div className='row subscription'>
         { this.props.package.subscriptions.map((subscription, idx) => {
           return (

@@ -19,22 +19,35 @@ describe('BillStore', function() {
   });
 
   it('should set the bill correctly', function() {
-    this.BillStore.registeredCallback({
-      actionType: 'GENERATE_BILL'
-    });
+    this.timeout(5000);
+    return new Promise((resolve) => {
+      this.BillStore.addChangeListener(() => {
+        let billData = this.BillStore.getBill();
+        expect(billData).to.equal(sampleBillData);
+        resolve();
+      });
 
-    let billData = this.BillStore.getBill();
-    expect(billData).to.equal(sampleBillData);
+      this.BillStore.registeredCallback({
+        actionType: 'GENERATE_BILL'
+      });
+    });
   });
 
   it('should emitChange event when the bill is set', function() {
-    let spy = sinon.spy(this.BillStore, 'emitChange');
+    this.timeout(5000);
+    return new Promise((resolve) => {
+      let spy = sinon.spy(this.BillStore, 'emitChange');
 
-    this.BillStore.registeredCallback({
-      actionType: BillConstants.GENERATE_BILL
+      this.BillStore.addChangeListener(() => {
+        expect(spy.calledOnce).to.be.true;
+        resolve();
+      });
+
+      this.BillStore.registeredCallback({
+        actionType: BillConstants.GENERATE_BILL
+      });
+
     });
-
-    expect(spy.calledOnce).to.be.true;
   });
 
 });

@@ -7,7 +7,7 @@ export default class NavBar extends React.Component {
     return (
       <Navbar brand='My Statements'>
         <Nav>
-          <NavItem eventKey={1} href='#'>Summary</NavItem>
+          <NavItem eventKey={1} href='http://www.markwylde.co.uk'>Home</NavItem>
           <NavDropdown eventKey={3} title='Statements' id='basic-nav-dropdown'>
             <MenuItem eventKey='1'>January</MenuItem>
           </NavDropdown>
