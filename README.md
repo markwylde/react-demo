@@ -8,13 +8,13 @@ This is an example of building a React application using the Flux architecture. 
 
 ### <i class="icon-file"></i> Installation
 --------------
- **Installation instructions:**
- - Clone this git repository locally and navigate to the folder in your console.
- - Install the node dependancies by running `npm install`
- - Launch the application in dev mode by running `npm run dev`
+**Installation instructions:**
+- Clone this git repository locally and navigate to the folder in your console.
+- Install the node dependancies by running `npm install`
+- Launch the application in dev mode by running `npm run dev`
 
- **Deployment:**
- - Check your code passes all unit tests by running `npm run unit_tests`
- - Check your code is well structured and formatted to the correct standards `npm run lint`
- - Run `npm run build` to compile the source into *./dist*.
- - Check your code passes all end to end tests `npm run e2e_tests`
+**Deployment:**
+- Check your code passes all unit tests by running `npm run unit_tests`
+- Check your code is well structured and formatted to the correct standards `npm run lint`
+- Run `npm run build` to compile the source into *./dist*.
+- Check your code passes all end to end tests `npm run e2e_tests`
