@@ -30,10 +30,8 @@ let billStore = new BillStore();
 function generateBill() {
   $.get('https://still-scrubland-9880.herokuapp.com/bill.json')
     .then(data => {
-      setTimeout(() => {
-        _bill = data;
-        billStore.emitChange();
-      }, 100);
+      _bill = data;
+      billStore.emitChange();
     });
 }
 

@@ -11,7 +11,7 @@
     "url": "git@github.com:markwylde/react-demo.git"
   },
   "scripts": {
-    "build": "./node_modules/.bin/gulp build",
+    "build": "npm run unit_tests && ./node_modules/.bin/gulp build",
     "lint": "./node_modules/.bin/gulp lint",
     "dev": "webpack-dev-server --hot --inline --config webpack_dev.config.js",
     "unit_tests": "./node_modules/.bin/babel-istanbul cover ./node_modules/mocha/bin/_mocha -- src/**/*.unitspec.js --compilers js:babel-core/register --recursive src",
