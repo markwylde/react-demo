@@ -94,10 +94,12 @@
       "before",
       "beforeEach",
       "after",
-      "afterEach"
+      "afterEach",
+      "exports"
     ],
 
     "predef": [
+      "exports",
       "module",
       "__dirname",
       "angular",
