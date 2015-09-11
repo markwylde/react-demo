@@ -2,7 +2,7 @@ import { expect } from 'chai';
 
 import StringManipulation from './StringManipulation.js';
 
-describe('StringManipulation', function() {
+describe('Service:StringManipulation', function() {
 
   it('should convert first letter to capital', function() {
     let transformedString = StringManipulation.firstLetterUpperCase('test string');
