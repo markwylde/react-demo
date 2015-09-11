@@ -31,15 +31,15 @@ export default class Charges extends React.Component {
     let buyAndKeep = this.props.purchases.buyAndKeep;
 
     return (
-      <div>
+      <div className='purchases'>
         <h3>Your Purchases</h3>
         <p>
-          This month you rented <strong>{ rentals.length } </strong>
-          {StringManipulation.pluralise('movie', rentals.length)} and
+          This month you rented <strong>{ rentals.length }</strong>
+          {' ' + StringManipulation.pluralise('movie', rentals.length)} and
           bought <strong>{ this.props.purchases.buyAndKeep.length }</strong> to keep. This cost
           you a total of <strong>&pound;{ this.props.purchases.total }</strong>.
         </p>
-        <table className='table table-bordered table-striped'>
+        <table className='table table-bordered table-striped purchases__table'>
           <thead>
             <tr>
               <td>Number Called</td>

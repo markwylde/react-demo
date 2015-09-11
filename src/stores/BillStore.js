@@ -33,7 +33,7 @@ function generateBill() {
       setTimeout(() => {
         _bill = data;
         billStore.emitChange();
-      }, 3000);
+      }, 100);
     });
 }
 
