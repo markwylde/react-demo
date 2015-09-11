@@ -77,7 +77,6 @@
     "eslint-plugin-react": "^3.3.2",
     "gulp-util": "^3.0.6",
     "gutil": "^1.6.4",
-    "istanbul": "^0.3.19",
     "jsdom": "^3.1.2",
     "mocha": "^2.3.2",
     "mocha-lcov-reporter": "0.0.2",
