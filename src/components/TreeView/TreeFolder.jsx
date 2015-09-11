@@ -3,7 +3,7 @@ import _ from 'lodash';
 
 import { TreeItem } from './TreeItem';
 
-export class TreeFolder extends React.Component {
+export default class TreeFolder extends React.Component {
 
   render() {
     var treeItems = [];

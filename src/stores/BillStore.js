@@ -1,13 +1,10 @@
+import $ from 'jquery';
 import AppDispatcher from '../dispatchers/AppDispatcher';
 import { EventEmitter } from 'events';
 
 import BillConstants from '../constants/BillConstants';
 
 let _bill = null;
-
-function generateBill(bill) {
-  _bill = bill;
-}
 
 class BillStore extends EventEmitter {
 
@@ -30,11 +27,18 @@ class BillStore extends EventEmitter {
 
 let billStore = new BillStore();
 
+function generateBill() {
+  $.get('https://still-scrubland-9880.herokuapp.com/bill.json')
+    .then(data => {
+      _bill = data;
+      billStore.emitChange();
+    });
+}
+
 let registeredCallback = (action) => {
   switch (action.actionType) {
     case BillConstants.GENERATE_BILL:
-      generateBill(action.bill);
-      billStore.emitChange();
+      generateBill();
       break;
   }
 };

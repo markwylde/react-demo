@@ -3,10 +3,9 @@ import BillConstants from '../constants/BillConstants';
 
 export default {
 
-  generateBill: function(bill) {
+  generateBill: function() {
     AppDispatcher.dispatch({
-      actionType: BillConstants.GENERATE_BILL,
-      bill
+      actionType: BillConstants.GENERATE_BILL
     });
   }
 

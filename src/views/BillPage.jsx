@@ -1,28 +1,45 @@
 import React from 'react';
 
-import BillActions from '../actions/BillActions.js';
+import NavBar from '../components/NavBar/NavBar';
+import Packages from '../components/Bill/Packages';
+import BillStore from '../stores/BillStore';
+import BillActions from '../actions/BillActions';
 
-export class BillPage extends React.Component {
+export default class BillPage extends React.Component {
 
   constructor() {
     super();
     this.state = {
-      test: 1
+      bill: null
     };
     BillActions.generateBill();
   }
 
-  add(amount) {
+  _onChange() {
     this.setState({
-      test: this.state.test + amount
+      bill: BillStore.getBill()
+    }, () => {
+      console.log(this.state.bill);
     });
   }
 
+  componentDidMount() {
+    BillStore.addChangeListener(this._onChange.bind(this));
+  }
+
+  componentWillUnmount() {
+    BillStore.removeChangeListener(this._onChange.bind(this));
+  }
+
   render() {
+    if (!this.state.bill) {
+      return <div>Loading</div>;
+    }
+
     return (
-      <div>
-        <span>This is the home page: {this.state.test}</span>
-        <button onClick={this.add.bind(this, 2)}>+ 2</button>
+      <div className='container'>
+        <NavBar />
+        <Packages package={this.state.bill.package} />
       </div>
     );
   }

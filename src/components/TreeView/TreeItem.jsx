@@ -1,7 +1,7 @@
 import React from 'react';
 import { TreeFolder } from './TreeFolder';
 
-export class TreeItem extends React.Component {
+export default class TreeItem extends React.Component {
 
   render() {
 
