@@ -27,6 +27,5 @@ This is an example of building a React application using the Flux architecture. 
 
 ### Known Issues
 
-- The `jsdom` library is out of date so the project will work with nodejs, as the more recent versions only support iojs and nodejs 4.
 - The app.js file is not covered by unit tests.
 - E2E tests don't run automatically on Travis as the server needs to be running to make them work. They do run locally so long as you run `npm run dev` first
