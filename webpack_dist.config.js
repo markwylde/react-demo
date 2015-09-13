@@ -1,7 +1,7 @@
 var webpack = require('webpack');
 
 module.exports = {
-  entry: ['./src/app.jsx'],
+  entry: ['./src/app.js'],
   output: {
     path: __dirname + '/dist',
     filename: 'app.min.js'
@@ -14,7 +14,7 @@ module.exports = {
       test: /\.scss$/,
       loader: 'style!css?sourceMap!sass?sourceMap'
     }, {
-      test: /\.jsx?$/,
+      test: /\.js?$/,
       exclude: /(node_modules|bower_components)/,
       loaders: ['babel-loader']
     }, {
@@ -35,8 +35,8 @@ module.exports = {
     })
   ],
   resolve: {
-    extensions: ['', '.webpack.js', '.web.js', '.js', '.jsx'],
-    modulesDirectories: ['web_modules', 'node_modules', 'bower_components']
+    extensions: ['', '.webpack.js', '.web.js', '.js'],
+    modulesDirectories: ['node_modules']
   }
 
 };
