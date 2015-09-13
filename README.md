@@ -7,8 +7,9 @@ This is an example of building a React application using the Flux architecture. 
 [![bitHound Score](https://www.bithound.io/github/markwylde/react-demo/badges/score.svg)](https://www.bithound.io/github/markwylde/react-demo)
 [![Dependancies Check](https://david-dm.org/markwylde/react-demo.svg)](https://david-dm.org/markwylde/react-demo)
 
-### Screenshot
 -------------
+
+### Screenshot
 ![screenshot of react-demo](http://i.imgur.com/JWHd8sU.png)
 
 ### <i class="icon-file"></i> Installation
