@@ -23,7 +23,6 @@ gulp.task('unit_tests', function(cb) {
     });
 });
 
-
 gulp.task('eslint', function() {
   return gulp.src(['./src/**/*.jsx', './src/**/*.js'])
   .pipe(eslint({ configFile: '.eslintrc' }))
