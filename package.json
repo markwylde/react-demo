@@ -14,7 +14,8 @@
     "build": "npm run unit_tests && ./node_modules/.bin/gulp build",
     "lint": "./node_modules/.bin/gulp lint",
     "dev": "webpack-dev-server --hot --inline --config webpack_dev.config.js",
-    "unit_tests": "./node_modules/.bin/babel-istanbul cover ./node_modules/mocha/bin/_mocha -- src/**/*.unitspec.js --compilers js:babel-core/register --recursive src",
+    "new_unit_tests": "./node_modules/.bin/babel-node ./node_modules/.bin/isparta cover _mocha --report lcovonly -- -i ./src/**/*.js --recursive && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
+    "unit_tests": "./node_modules/.bin/babel-istanbul cover ./node_modules/mocha/bin/_mocha -- src/**/*.jsx --compilers js:babel-core/register --recursive src",
     "unit_tests_travis": "./node_modules/.bin/babel-istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- src/**/*.unitspec.js --compilers js:babel-core/register --recursive src && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
     "e2e_tests": "./node_modules/protractor/bin/protractor protractor.conf.js",
     "test": "npm run lint && npm run unit_tests",
@@ -80,5 +81,13 @@
     "url-loader": "^0.5.6",
     "vc-reset-css": "^0.2.2",
     "webpack": "^1.11.0"
+  },
+  "dependencies": {
+    "babel": "^5.8.23",
+    "gulp-istanbul": "^0.10.0",
+    "gulp-jsx-coverage": "^0.2.5",
+    "gulp-lab": "^1.0.5",
+    "isparta": "^3.0.4",
+    "lab": "^5.16.1"
   }
 }

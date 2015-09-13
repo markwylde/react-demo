@@ -1,0 +1,3 @@
+describe('Component:Loading', function() {
+
+});

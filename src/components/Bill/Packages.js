@@ -11,7 +11,9 @@ export default class Packages extends React.Component {
 
   static defaultProps() {
     return {
-      package: null
+      package: {
+        subscriptions: []
+      }
     };
   }
 
@@ -20,7 +22,7 @@ export default class Packages extends React.Component {
       <div>
         <h3>Your Package</h3>
         <div className='row subscription'>
-        {this.props.package.subscriptions.map((subscription, idx) => {
+        {this.props.package && this.props.package.subscriptions.map((subscription, idx) => {
           return (
               <div className='col-sm-4' key={idx} >
                 <div className='alert alert-success'>
@@ -36,7 +38,7 @@ export default class Packages extends React.Component {
         </div>
         <div className='alert alert-info'>
           The monthly cost for your <strong>ACME Example</strong> package is:
-          &pound;{parseFloat(this.props.package.total).toFixed(2)}
+          &pound;{parseFloat(this.props.package && this.props.package.total).toFixed(2)}
         </div>
       </div>
     );
