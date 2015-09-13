@@ -7,12 +7,12 @@ This is an example of building a React application using the Flux architecture. 
 [![bitHound Score](https://www.bithound.io/github/markwylde/react-demo/badges/score.svg)](https://www.bithound.io/github/markwylde/react-demo)
 [![Dependancies Check](https://david-dm.org/markwylde/react-demo.svg)](https://david-dm.org/markwylde/react-demo)
 
-### <i class="icon-file"></i> Screenshot
+### Screenshot
 -------------
 ![screenshot of react-demo](http://i.imgur.com/JWHd8sU.png)
 
 ### <i class="icon-file"></i> Installation
---------------
+
 **Installation instructions:**
 - Clone this git repository locally and navigate to the folder in your console.
 - Install the node dependancies by running `npm install`
@@ -25,6 +25,7 @@ This is an example of building a React application using the Flux architecture. 
 - Check your code passes all end to end tests `npm run e2e_tests`
 
 ### Known Issues
+
 - The `jsdom` library is out of date so the project will work with nodejs, as the more recent versions only support iojs and nodejs 4.
 - The app.js file is not covered by unit tests.
 - E2E tests don't run automatically on Travis as the server needs to be running to make them work. They do run locally so long as you run `npm run dev` first
