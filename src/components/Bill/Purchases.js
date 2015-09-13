@@ -11,7 +11,10 @@ export default class Charges extends React.Component {
 
   static defaultProps() {
     return {
-      purchases: null
+      purchases: {
+        rentals: [],
+        buyAndKeep: []
+      }
     };
   }
 
@@ -29,21 +32,17 @@ export default class Charges extends React.Component {
   }
 
   render() {
-    if (!this.props.purchases) {
-      return (<div>Loading</div>);
-    }
-
-    let rentals = this.props.purchases.rentals;
-    let buyAndKeep = this.props.purchases.buyAndKeep;
+    let rentals = this.props.purchases && this.props.purchases.rentals;
+    let buyAndKeep = this.props.purchases && this.props.purchases.buyAndKeep;
 
     return (
       <div className='purchases'>
         <h3>Your Purchases</h3>
         <p>
-          This month you rented <strong>{rentals.length}</strong>
-          {' ' + StringManipulation.pluralise('movie', rentals.length)} and
-          bought <strong>{this.props.purchases.buyAndKeep.length}</strong> to keep. This cost
-          you a total of <strong>&pound;{this.props.purchases.total}</strong>.
+          This month you rented <strong>{rentals && rentals.length}</strong>
+        {' ' + StringManipulation.pluralise('movie', rentals && rentals.length)} and
+          bought <strong>{this.props.purchases && this.props.purchases.buyAndKeep.length}</strong> to keep. This cost
+          you a total of <strong>&pound;{this.props.purchases && this.props.purchases.total}</strong>.
         </p>
         <table className='table table-bordered table-striped purchases__table'>
           <thead>
@@ -54,8 +53,8 @@ export default class Charges extends React.Component {
             </tr>
           </thead>
           <tbody>
-            {this.renderTablePart(rentals, 'Rental')}
-            {this.renderTablePart(buyAndKeep, 'Buy To Keep')}
+            {this.renderTablePart(rentals || [], 'Rental')}
+            {this.renderTablePart(buyAndKeep || [], 'Buy To Keep')}
           </tbody>
         </table>
       </div>

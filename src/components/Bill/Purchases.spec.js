@@ -23,6 +23,21 @@ describe('Component:Purchases', function() {
     setTimeout(done);
   });
 
+  it('should return the correct propTypes', function() {
+    let propTypes = Purchases.propTypes();
+    expect(propTypes.purchases).to.be.a('function');
+  });
+
+  it('should return the correct default props', function() {
+    let defaultProps = Purchases.defaultProps();
+    expect(defaultProps).to.deep.equal({
+      purchases: {
+        rentals: [],
+        buyAndKeep: []
+      }
+    });
+  });
+
   it('should display the purchases information', function() {
     React.render(<Purchases purchases={samplePurchases} />, document.body);
 

@@ -12,6 +12,20 @@ describe('Component:Packages', function() {
     setTimeout(done);
   });
 
+  it('should return the correct propTypes', function() {
+    let propTypes = Packages.propTypes();
+    expect(propTypes.package).to.be.a('function');
+  });
+
+  it('should return the correct default props', function() {
+    let defaultProps = Packages.defaultProps();
+    expect(defaultProps).to.deep.equal({
+      package: {
+        subscriptions: []
+      }
+    });
+  });
+
   it('should display the package information', function() {
     let samplePackage = {
       total: 10,

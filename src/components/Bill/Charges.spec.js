@@ -21,6 +21,20 @@ describe('Component:Charges', function() {
     setTimeout(done);
   });
 
+  it('should return the correct propTypes', function() {
+    let propTypes = Charges.propTypes();
+    expect(propTypes.charges).to.be.a('function');
+  });
+
+  it('should return the correct default props', function() {
+    let defaultProps = Charges.defaultProps();
+    expect(defaultProps).to.deep.equal({
+      charges: {
+        calls: []
+      }
+    });
+  });
+
   it('should display the charges information', function() {
     React.render(<Charges charges={sampleCharges} />, document.body);
 

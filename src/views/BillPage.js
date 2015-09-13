@@ -5,8 +5,8 @@ import NavBar from '../components/NavBar/NavBar';
 import Packages from '../components/Bill/Packages';
 import Charges from '../components/Bill/Charges';
 import Purchases from '../components/Bill/Purchases';
-import BillStore from '../stores/BillStore.js';
 import BillActions from '../actions/BillActions.js';
+let BillStore = require('../stores/BillStore.js');
 
 export default class BillPage extends React.Component {
 
@@ -42,14 +42,14 @@ export default class BillPage extends React.Component {
     }
 
     return (
-      <div className='container'>
+      <div className='container bill-page'>
         <NavBar />
         <h1>Your Statement</h1>
         <div className='statement-explanation'>
           <p>A total amount of <strong>&pound;{this.state.bill.total}</strong> is due for your subscription to ACME
-            for the period between <strong>{this.state.bill.statement && this.state.bill.statement.period.from}</strong> and
-            <strong> {this.state.bill.statement && this.state.bill.statement.period.to}</strong>. Payment is due on the
-            <strong> {this.state.bill.statement && this.state.bill.statement.generated}</strong>.
+            for the period between <strong>{this.state.bill.statement.period.from}</strong> and
+            <strong> {this.state.bill.statement.period.to}</strong>. Payment is due on the
+            <strong> {this.state.bill.statement.generated}</strong>.
           </p>
         </div>
         <Packages package={this.state.bill.package} />

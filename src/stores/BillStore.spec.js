@@ -21,11 +21,13 @@ describe('Store:BillStore', function() {
   it('should set the bill correctly', function() {
     this.timeout(5000);
     return new Promise((resolve) => {
-      this.BillStore.addChangeListener(() => {
+      let changer = () => {
         let billData = this.BillStore.getBill();
         expect(billData).to.equal(sampleBillData);
         resolve();
-      });
+        this.BillStore.removeChangeListener(changer);
+      };
+      this.BillStore.addChangeListener(changer);
 
       this.BillStore.registeredCallback({
         actionType: 'GENERATE_BILL'
@@ -38,10 +40,13 @@ describe('Store:BillStore', function() {
     return new Promise((resolve) => {
       let spy = sinon.spy(this.BillStore, 'emitChange');
 
-      this.BillStore.addChangeListener(() => {
+      let changer = () => {
         expect(spy.calledOnce).to.be.true;
         resolve();
-      });
+        this.BillStore.removeChangeListener(changer);
+      };
+
+      this.BillStore.addChangeListener(changer);
 
       this.BillStore.registeredCallback({
         actionType: BillConstants.GENERATE_BILL

@@ -14,8 +14,8 @@
     "build": "npm run unit_tests && ./node_modules/.bin/gulp build",
     "lint": "./node_modules/.bin/gulp lint",
     "dev": "webpack-dev-server --hot --inline --config webpack_dev.config.js",
-    "unit_tests": "./node_modules/.bin/babel-node ./node_modules/.bin/isparta cover _mocha --report lcovonly -- -i ./src/**/*.js --recursive",
-    "unit_tests_travis": "./node_modules/.bin/babel-node ./node_modules/.bin/isparta cover _mocha --report lcovonly -- -i ./src/**/*.js --recursive && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
+    "unit_tests": "./node_modules/.bin/babel-node ./node_modules/.bin/isparta cover _mocha -- --recursive -i ./src/**/*.js -i ./src/**/**/*.js",
+    "unit_tests_travis": "./node_modules/.bin/babel-node ./node_modules/.bin/isparta cover _mocha --report lcovonly --  --recursive -i ./src/**/*.js -i ./src/**/**/*.js && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
     "e2e_tests": "./node_modules/protractor/bin/protractor protractor.conf.js",
     "test": "npm run lint && npm run unit_tests",
     "test_travis": "npm run lint && npm run unit_tests_travis"
