@@ -14,8 +14,8 @@
     "build": "npm run unit_tests && ./node_modules/.bin/gulp build",
     "lint": "./node_modules/.bin/gulp lint",
     "dev": "webpack-dev-server --hot --inline --config webpack_dev.config.js",
-    "unit_tests": "./node_modules/.bin/babel-node ./node_modules/.bin/isparta cover _mocha -- --recursive -i ./src/**/*.js -i ./src/**/**/*.js",
-    "unit_tests_travis": "./node_modules/.bin/babel-node ./node_modules/.bin/isparta cover _mocha --report lcovonly --  --recursive -i ./src/**/*.js -i ./src/**/**/*.js && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
+    "unit_tests": "./node_modules/.bin/gulp unit_tests",
+    "unit_tests_travis": "./node_modules/.bin/gulp unit_tests && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
     "e2e_tests": "./node_modules/protractor/bin/protractor protractor.conf.js",
     "test": "npm run lint && npm run unit_tests",
     "test_travis": "npm run lint && npm run unit_tests_travis"
@@ -86,5 +86,8 @@
     "gulp-lab": "^1.0.5",
     "isparta": "^3.0.4",
     "lab": "^5.16.1"
+  },
+  "dependencies": {
+    "gulp-mocha": "^2.1.3"
   }
 }

@@ -3,6 +3,26 @@ import eslint from 'gulp-eslint';
 import gutil from 'gulp-util';
 import rimraf from 'rimraf';
 import webpack from 'webpack';
+import istanbul from 'gulp-istanbul';
+import mocha from 'gulp-mocha';
+import { Instrumenter } from 'isparta';
+
+gulp.task('unit_tests', function(cb) {
+  gulp.src(['src/**/*.js'])
+    .pipe(istanbul({
+      instrumenter: Instrumenter,
+      includeUntested: true
+    }))
+    .pipe(istanbul.hookRequire())
+    .on('finish', function() {
+      gulp.src(['src/**/*.spec.js'])
+        .pipe(mocha())
+        .pipe(istanbul.writeReports())
+        .pipe(istanbul.enforceThresholds({ thresholds: { global: 90 } }))
+        .on('end', cb);
+    });
+});
+
 
 gulp.task('eslint', function() {
   return gulp.src(['./src/**/*.jsx', './src/**/*.js'])
