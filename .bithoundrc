@@ -3,7 +3,15 @@
     "unused-ignores": [
       "mocha",
       "bootstrap",
-      "react-bootstrap"
+      "react-bootstrap",
+      "file-loader",
+      "url-loader",
+      "babel-loader",
+      "font-awesome",
+      "style-loader",
+      "react-hot-loader",
+      "node-sass",
+      "coveralls"
     ]
   }
 }
