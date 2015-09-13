@@ -11,7 +11,7 @@ let sampleBillData = {
 };
 jquery.mockGet(sampleBillData);
 
-xdescribe('Store:BillStore', function() {
+describe('Store:BillStore', function() {
 
   beforeEach(function() {
     this.BillStore = rewire('./BillStore');
