@@ -5,7 +5,6 @@ import { expect } from 'chai';
 import rewire from 'rewire';
 
 import React from 'react/addons';
-let TestUtils = React.addons.TestUtils;
 
 describe('View:BillPage', function() {
 
