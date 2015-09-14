@@ -3,7 +3,7 @@ import eslint from 'gulp-eslint';
 import gutil from 'gulp-util';
 import rimraf from 'rimraf';
 import webpack from 'webpack';
-import istanbul from 'gulp-istanbul';
+import istanbul from 'gulp-istanbul-plus';
 import mocha from 'gulp-mocha';
 import { Instrumenter } from 'isparta';
 
