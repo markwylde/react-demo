@@ -11,7 +11,8 @@ gulp.task('unit_tests', function(cb) {
   gulp.src(['src/**/*.js'])
     .pipe(istanbul({
       instrumenter: Instrumenter,
-      includeUntested: true
+      includeUntested: true,
+      skipImports: /\.s{0,1}css$/
     }))
     .pipe(istanbul.hookRequire())
     .on('finish', function() {

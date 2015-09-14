@@ -23,17 +23,6 @@ describe('View:BillPage', function() {
     expect(callback.calledOnce).to.be.true;
   });
 
-  it('should change the state on change', function() {
-    let BillPage = rewire('./BillPage');
-    let callback = getCallbackOnPrivate(BillPage, 'BillStore', 'getBill');
-
-    let billPage = new BillPage();
-    billPage.render();
-    billPage._onChange();
-
-    expect(callback.calledOnce).to.be.true;
-  });
-
   it('should display loader if bill is undefined', function() {
     let BillPage = rewire('./BillPage');
     let billPage = new BillPage();
