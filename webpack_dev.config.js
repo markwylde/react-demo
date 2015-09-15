@@ -1,7 +1,7 @@
 var webpack = require('webpack');
 
 module.exports = {
-  entry: ['webpack/hot/dev-server', './src/app.js'],
+  entry: ['webpack/hot/dev-server', './src/App.js'],
   output: {
     path: __dirname + '/src',
     filename: 'app.min.js'

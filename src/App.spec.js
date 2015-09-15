@@ -12,7 +12,7 @@ describe('App', function() {
   });
 
   it('should display App if bill is defined', function() {
-    rewire('./app');
+    rewire('./App');
 
     let navbar = document.querySelectorAll('.navbar');
     expect(navbar.length).to.be.greaterThan(0);
