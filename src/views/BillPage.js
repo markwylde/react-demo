@@ -6,7 +6,7 @@ import Packages from '../components/Bill/Packages';
 import Charges from '../components/Bill/Charges';
 import Purchases from '../components/Bill/Purchases';
 import BillActions from '../actions/BillActions.js';
-let BillStore = require('../stores/BillStore.js');
+import BillStore from '../stores/BillStore.js';
 
 export default class BillPage extends React.Component {
 

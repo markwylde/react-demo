@@ -1,8 +1,8 @@
 import '../../test/unit-test-support/setup-test-dom';
-import { getCallbackOnPrivate } from '../../test/unit-test-support/rewire-privates';
 
+import sinon from 'sinon';
 import { expect } from 'chai';
-import rewire from 'rewire';
+import BillPage from './BillPage';
 
 import React from 'react/addons';
 
@@ -15,16 +15,25 @@ describe('View:BillPage', function() {
   });
 
   it('should listen to BillStore changes on construction', function() {
-    let BillPage = rewire('./BillPage');
-    let callback = getCallbackOnPrivate(BillPage, 'BillStore', 'addChangeListener');
+    let callback = sinon.spy();
+    BillPage.__Rewire__('BillStore', {
+      addChangeListener: function() {
+        callback();
+      },
+      removeChangeListener: function() {
+      },
+      getBill: function() {
+        return {};
+      }
+    });
 
     React.render(<BillPage />, document.body);
-
     expect(callback.calledOnce).to.be.true;
+    React.unmountComponentAtNode(document.body);
+    BillPage.__ResetDependency__('BillStore');
   });
 
   it('should display loader if bill is undefined', function() {
-    let BillPage = rewire('./BillPage');
     let billPage = new BillPage();
 
     billPage.state.bill = null;
@@ -33,7 +42,6 @@ describe('View:BillPage', function() {
   });
 
   it('should display BillPage if bill is defined', function() {
-    let BillPage = rewire('./BillPage');
     let billPage = new BillPage();
 
     let result = billPage.render();

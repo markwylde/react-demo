@@ -12,6 +12,9 @@ gulp.task('unit_tests', function(cb) {
     .pipe(istanbul({
       instrumenter: Instrumenter,
       includeUntested: true,
+      babel: {
+        plugins: ['rewire']
+      },
       skipImports: /\.s{0,1}css$/
     }))
     .pipe(istanbul.hookRequire())
