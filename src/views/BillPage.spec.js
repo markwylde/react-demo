@@ -6,6 +6,17 @@ import BillPage from './BillPage';
 
 import React from 'react/addons';
 
+let sampleBillData = {
+  statement: {
+    generated: '2015-01-11',
+    due: '2015-01-25',
+    period: {
+      from: '2015-01-26',
+      to: '2015-02-25'
+    }
+  }
+};
+
 describe('View:BillPage', function() {
 
   afterEach(function(done) {
@@ -15,20 +26,22 @@ describe('View:BillPage', function() {
   });
 
   it('should listen to BillStore changes on construction', function() {
-    let callback = sinon.spy();
+    let spy = sinon.spy();
     BillPage.__Rewire__('BillStore', {
-      addChangeListener: function() {
-        callback();
+      addChangeListener: function(boundFn) {
+        spy();
+        boundFn();
       },
       removeChangeListener: function() {
       },
       getBill: function() {
-        return {};
+        return sampleBillData;
       }
     });
 
     React.render(<BillPage />, document.body);
-    expect(callback.calledOnce).to.be.true;
+    expect(spy.calledOnce).to.be.true;
+
     React.unmountComponentAtNode(document.body);
     BillPage.__ResetDependency__('BillStore');
   });

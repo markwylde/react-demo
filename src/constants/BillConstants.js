@@ -1,3 +1,3 @@
 export default {
-  'GENERATE_BILL': 'GENERATE_BILL'
+  'RECEIVE_BILL': 'RECEIVE_BILL'
 };

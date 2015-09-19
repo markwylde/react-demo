@@ -1,5 +1,3 @@
-import jquery from '../../test/unit-test-support/mock-jquery-ajax';
-
 import { expect } from 'chai';
 import sinon from 'sinon';
 import BillStore from './BillStore';
@@ -7,9 +5,15 @@ import BillStore from './BillStore';
 import BillConstants from '../constants/BillConstants';
 
 let sampleBillData = {
-  name: 'Joe Bloggs'
+  statement: {
+    generated: '2015-01-11',
+    due: '2015-01-25',
+    period: {
+      from: '2015-01-26',
+      to: '2015-02-25'
+    }
+  }
 };
-jquery.mockGet(sampleBillData);
 
 describe('Store:BillStore', function() {
 
@@ -17,19 +21,23 @@ describe('Store:BillStore', function() {
     BillStore.registeredCallback = BillStore.__get__('registeredCallback');
   });
 
+  afterEach(function() {
+    BillStore.__ResetDependency__('registeredCallback');
+  });
+
   it('should set the bill correctly', function() {
     this.timeout(5000);
     return new Promise((resolve) => {
       let changer = () => {
-        let billData = BillStore.getBill();
-        expect(billData).to.equal(sampleBillData);
+        expect(BillStore.getBill()).to.equal(sampleBillData);
         resolve();
         BillStore.removeChangeListener(changer);
       };
       BillStore.addChangeListener(changer);
 
       BillStore.registeredCallback({
-        actionType: 'GENERATE_BILL'
+        actionType: BillConstants.RECEIVE_BILL,
+        bill: sampleBillData
       });
     });
   });
@@ -48,7 +56,8 @@ describe('Store:BillStore', function() {
       BillStore.addChangeListener(changer);
 
       BillStore.registeredCallback({
-        actionType: BillConstants.GENERATE_BILL
+        actionType: BillConstants.RECEIVE_BILL,
+        bill: sampleBillData
       });
 
     });

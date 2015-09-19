@@ -8,7 +8,7 @@ import mocha from 'gulp-mocha';
 import { Instrumenter } from 'isparta';
 
 gulp.task('unit_tests', function(cb) {
-  gulp.src(['src/**/*.js'])
+  gulp.src(['src/**/*.js', '!src/App.js'])
     .pipe(istanbul({
       instrumenter: Instrumenter,
       includeUntested: true,
@@ -19,7 +19,7 @@ gulp.task('unit_tests', function(cb) {
     }))
     .pipe(istanbul.hookRequire())
     .on('finish', function() {
-      gulp.src(['src/**/*.spec.js'])
+      gulp.src(['src/**/*.spec.js', '!src/App.spec.js'])
         .pipe(mocha())
         .pipe(istanbul.writeReports())
         .pipe(istanbul.enforceThresholds({ thresholds: { global: 90 } }))

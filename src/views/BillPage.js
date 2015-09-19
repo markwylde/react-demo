@@ -5,7 +5,6 @@ import NavBar from '../components/NavBar/NavBar';
 import Packages from '../components/Bill/Packages';
 import Charges from '../components/Bill/Charges';
 import Purchases from '../components/Bill/Purchases';
-import BillActions from '../actions/BillActions.js';
 import BillStore from '../stores/BillStore.js';
 
 export default class BillPage extends React.Component {
@@ -13,13 +12,8 @@ export default class BillPage extends React.Component {
   constructor() {
     super();
     this.state = {
-      bill: {
-        statement: {
-          period: {}
-        }
-      }
+      bill: BillStore.getBill()
     };
-    BillActions.generateBill();
   }
 
   componentDidMount() {
