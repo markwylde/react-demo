@@ -26,7 +26,6 @@ describe('Store:BillStore', function() {
   });
 
   it('should set the bill correctly', function() {
-    this.timeout(5000);
     return new Promise((resolve) => {
       let changer = () => {
         expect(BillStore.getBill()).to.equal(sampleBillData);
@@ -43,7 +42,6 @@ describe('Store:BillStore', function() {
   });
 
   it('should emitChange event when the bill is set', function() {
-    this.timeout(5000);
     return new Promise((resolve) => {
       let spy = sinon.spy(BillStore, 'emitChange');
 
