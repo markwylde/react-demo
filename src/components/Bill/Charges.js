@@ -22,7 +22,7 @@ export default class Charges extends React.Component {
         <h3>Your Charges</h3>
         <p>This month you made a total of <strong>{this.props.charges && this.props.charges.calls.length}</strong> calls
         which came to a total of <strong>&pound;{this.props.charges && this.props.charges.total}</strong></p>
-      <table className='table table-bordered table-striped charges__table'>
+        <table className='table table-bordered table-striped charges__table'>
           <thead>
             <tr>
               <td>Number Called</td>
