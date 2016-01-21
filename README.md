@@ -6,7 +6,7 @@ This is an example of building a React application using the Flux architecture. 
 [![Coverage Status](https://coveralls.io/repos/markwylde/react-demo/badge.svg?branch=master&service=github)](https://coveralls.io/github/markwylde/react-demo?branch=master)
 [![bitHound Score](https://www.bithound.io/github/markwylde/react-demo/badges/score.svg)](https://www.bithound.io/github/markwylde/react-demo)
 [![Dependancies Check](https://david-dm.org/markwylde/react-demo.svg)](https://david-dm.org/markwylde/react-demo)
-[![Iojs](https://img.shields.io/badge/iojs-3.3.0-green.svg)](https://iojs.org/)
+[![Node.js](https://img.shields.io/badge/node.js--lightgrey.svg)](https://nodejs.org/)
 [![MIT License](http://imgh.us/license-mit.svg)](https://opensource.org/licenses/MIT)
 
 -------------
