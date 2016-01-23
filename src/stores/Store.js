@@ -6,9 +6,9 @@ let createStoreWithMiddleware = applyMiddleware(thunk)(createStore);
 
 const store = createStoreWithMiddleware(rootReducer);
 
-/* istanbul ignore if  */
+/* istanbul ignore if */
 if (module.hot) {
-  // Enable Webpack hot module replacement for reducers
+  /* istanbul ignore next */
   module.hot.accept('../reducers', () => {
     const nextReducer = require('../reducers');
     store.replaceReducer(nextReducer);
