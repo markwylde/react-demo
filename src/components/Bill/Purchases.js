@@ -58,4 +58,4 @@ Purchases.defaultProps = () => ({
 
 Purchases.displayName = 'Purchases';
 
-export default Purchases;
+module.exports = Purchases;

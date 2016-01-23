@@ -6,7 +6,7 @@ function fetchBill(bill) {
   return Immutable.Map(bill);
 }
 
-export default function Bill(state = initialState, action) {
+function Bill(state = initialState, action) {
   switch (action.type) {
     case 'FETCH_BILL':
       return fetchBill(action.bill);
@@ -15,3 +15,5 @@ export default function Bill(state = initialState, action) {
       return state;
   }
 }
+
+module.exports = Bill;

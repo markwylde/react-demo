@@ -20,4 +20,4 @@ export const NavBar = () =>
 
 NavBar.displayName = 'Nav Bar';
 
-export default NavBar;
+module.exports = NavBar;

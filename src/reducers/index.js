@@ -5,4 +5,4 @@ const rootReducer = combineReducers({
   bill
 });
 
-export default rootReducer;
+module.exports = rootReducer;

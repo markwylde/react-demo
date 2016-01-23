@@ -18,4 +18,4 @@ function setupHotLoading() {
   }
 }
 
-export default store;
+module.exports = store;

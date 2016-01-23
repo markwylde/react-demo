@@ -40,4 +40,4 @@ BillPage.propTypes = () => ({
 
 BillPage.displayName = 'Bill Page';
 
-export default BillPage;
+module.exports = BillPage;

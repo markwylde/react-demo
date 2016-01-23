@@ -38,4 +38,4 @@ Charges.defaultProps = () => ({
 
 Charges.displayName = 'Charges';
 
-export default Charges;
+module.exports = Charges;

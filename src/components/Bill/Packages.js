@@ -37,4 +37,4 @@ Packages.defaultProps = () => ({
 
 Packages.displayName = 'Packages';
 
-export default Packages;
+module.exports = Packages;
