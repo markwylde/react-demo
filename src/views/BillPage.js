@@ -40,7 +40,7 @@ export default class BillPage extends React.Component {
         <NavBar />
         <h1>Your Statement</h1>
         <div className='statement-explanation'>
-          <p>A total amount of <strong>&pound;{this.state.bill.total}</strong> is due for your subscription to ACME
+          <p>A total amount of <strong className="bill-total">&pound;{parseFloat(this.state.bill.total).toFixed(2)}</strong> is due for your subscription to ACME
             for the period between <strong>{this.state.bill.statement.period.from}</strong> and
             <strong> {this.state.bill.statement.period.to}</strong>. Payment is due on the
             <strong> {this.state.bill.statement.generated}</strong>.

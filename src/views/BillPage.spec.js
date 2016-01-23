@@ -15,25 +15,16 @@ let sampleBillData = {
       from: '2015-01-26',
       to: '2015-02-25'
     }
-  }
+  },
+  total: 110.1
 };
 
-let element;
+let element, spy;
 
 describe('View:BillPage', function() {
 
   beforeEach(() => {
-    document.body.innerHTML = '<div id="app"></div>';
-    element = document.getElementById('app');
-  });
-
-  afterEach(done => {
-    ReactDOM.unmountComponentAtNode(element);
-    setTimeout(done);
-  });
-
-  it('should listen to BillStore changes on construction', function() {
-    let spy = sinon.spy();
+    spy = sinon.spy();
     BillPage.__Rewire__('BillStore', {
       addChangeListener: function(boundFn) {
         spy();
@@ -45,12 +36,19 @@ describe('View:BillPage', function() {
         return sampleBillData;
       }
     });
+    document.body.innerHTML = '<div id="app"></div>';
+    element = document.getElementById('app');
+  });
 
+  afterEach(done => {
+    ReactDOM.unmountComponentAtNode(element);
+    BillPage.__ResetDependency__('BillStore');
+    setTimeout(done);
+  });
+
+  it('should listen to BillStore changes on construction', function() {
     ReactDOM.render(<BillPage />, element);
     expect(spy.calledOnce).to.be.true;
-
-    ReactDOM.unmountComponentAtNode(document.body);
-    BillPage.__ResetDependency__('BillStore');
   });
 
   it('should display loader if bill is undefined', function() {
@@ -66,6 +64,12 @@ describe('View:BillPage', function() {
 
     let result = billPage.render();
     expect(result.props.className).to.contain('bill-page');
+  });
+
+  it('should display the total amount of the bill', function() {
+    ReactDOM.render(<BillPage />, element);
+    let totalCalls = document.querySelectorAll('.bill-total')[0];
+    expect(totalCalls.textContent).to.equal('£110.10');
   });
 
 });
