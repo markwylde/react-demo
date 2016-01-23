@@ -1,4 +1,4 @@
-React with Flux Demo
+React with Redux Demo
 ==================
 This is an example of building a React application using a Redux store. The app is fully tested, showing how to use Mocha for unit tests and CasperJS for end to end testing.
 
