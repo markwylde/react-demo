@@ -1,8 +1,7 @@
 import { expect } from 'chai';
 import sinon from 'sinon';
 
-import BillActions from './BillActions.js';
-import AppDispatcher from '../dispatchers/AppDispatcher';
+import * as BillActions from './BillActions.js';
 
 let sampleBillData = {
   statement: {
@@ -15,12 +14,29 @@ let sampleBillData = {
   }
 };
 
+let callback = sinon.spy();
+
 describe('Actions:BillAction', function() {
 
-  it('should raise a generate bill event', function() {
-    let spy = sinon.spy(AppDispatcher, 'dispatch');
-    BillActions.receiveBill(sampleBillData);
-    expect(spy.calledOnce).to.be.true;
+  beforeEach(done => {
+    BillActions.__Rewire__('store', {
+      dispatch: (action) => {
+        callback(action);
+        done();
+      }
+    });
+
+    BillActions.__Rewire__('downloadBillFromServer', () => {
+      return Promise.resolve(sampleBillData);
+    });
+
+    BillActions.fetchBill();
+  });
+
+  it('should raise a FETCH_BILL event', function() {
+    expect(callback.calledWith({
+      type: 'FETCH_BILL', bill: sampleBillData
+    })).to.be.true;
   });
 
 });

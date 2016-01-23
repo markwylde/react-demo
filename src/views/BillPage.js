@@ -5,54 +5,39 @@ import NavBar from '../components/NavBar/NavBar';
 import Packages from '../components/Bill/Packages';
 import Charges from '../components/Bill/Charges';
 import Purchases from '../components/Bill/Purchases';
-import BillStore from '../stores/BillStore.js';
 
-export default class BillPage extends React.Component {
-
-  constructor() {
-    super();
-    this.state = {
-      bill: BillStore.getBill()
-    };
+export const BillPage = props => {
+  if (!props || props && !props.bill) {
+    return (<Loading />);
   }
+  const {bill} = props;
 
-  componentDidMount() {
-    BillStore.addChangeListener(this._onChange.bind(this));
-  }
-
-  componentWillUnmount() {
-    BillStore.removeChangeListener(this._onChange.bind(this));
-  }
-
-  _onChange() {
-    this.setState({
-      bill: BillStore.getBill()
-    });
-  }
-
-  render() {
-    if (!this.state.bill) {
-      return (<Loading />);
-    }
-
-    return (
-      <div className='container bill-page'>
-        <NavBar />
-        <h1>Your Statement</h1>
-        <div className='statement-explanation'>
-          <p>A total amount of <strong className="bill-total">&pound;{parseFloat(this.state.bill.total).toFixed(2)}</strong> is due for your subscription to ACME
-            for the period between <strong>{this.state.bill.statement.period.from}</strong> and
-            <strong> {this.state.bill.statement.period.to}</strong>. Payment is due on the
-            <strong> {this.state.bill.statement.generated}</strong>.
-          </p>
-        </div>
-        <Packages package={this.state.bill.package} />
-        <Purchases purchases={this.state.bill.store} />
-        <Charges charges={this.state.bill.callCharges} />
+  return (
+    <div className='container bill-page'>
+      <NavBar />
+      <h1>Your Statement</h1>
+      <div className='statement-explanation'>
+        <p>A total amount of <strong className="bill-total">
+          &pound;{parseFloat(bill.get('total')).toFixed(2)}
+        </strong> is due for your subscription to ACME
+        for the period between <strong>{bill.get('statement.period.from')}</strong> and
+        <strong> {bill.get('statement.period.to')}</strong>. Payment is due on the
+        <strong> {bill.get('statement.generated')}</strong>.
+        </p>
       </div>
-    );
-  }
+      <Packages package={bill.get('package')} />
+      <Purchases purchases={bill.get('store')} />
+      <Charges charges={bill.get('callCharges')} />
+    </div>
+  );
+};
 
-}
+BillPage.propTypes = () => ({
+  charges: {
+    calls: []
+  }
+});
 
 BillPage.displayName = 'Bill Page';
+
+export default BillPage;

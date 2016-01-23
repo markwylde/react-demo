@@ -1,13 +1,9 @@
-import AppDispatcher from '../dispatchers/AppDispatcher';
-import BillConstants from '../constants/BillConstants';
+import store from '../stores/Store.js';
 
-export default {
+import { downloadBillFromServer } from '../services/ExternalDataAccess';
 
-  receiveBill: function(bill) {
-    AppDispatcher.dispatch({
-      actionType: BillConstants.RECEIVE_BILL,
-      bill: bill
-    });
-  }
-
+export const fetchBill = () => {
+  return downloadBillFromServer().then(bill =>
+    store.dispatch({ type: 'FETCH_BILL', bill })
+  );
 };
