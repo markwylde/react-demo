@@ -1,14 +1,21 @@
 import '../../../test/unit-test-support/setup-test-dom';
 import { expect } from 'chai';
 
-import React from 'react/addons';
+import React from 'react';
+import ReactDOM from 'react-dom';
 import Packages from './Packages';
+
+let element;
 
 describe('Component:Packages', function() {
 
-  afterEach(function(done) {
-    React.unmountComponentAtNode(document.body);
-    document.body.innerHTML = '';
+  beforeEach(() => {
+    document.body.innerHTML = '<div id="app"></div>';
+    element = document.getElementById('app');
+  });
+
+  afterEach(done => {
+    ReactDOM.unmountComponentAtNode(element);
     setTimeout(done);
   });
 
@@ -35,7 +42,7 @@ describe('Component:Packages', function() {
         'cost': 10
       }]
     };
-    React.render(<Packages package={samplePackage} />, document.body);
+    ReactDOM.render(<Packages package={samplePackage} />, element);
 
     let subscriptionType = document.querySelectorAll('.subscription>div>div>p>strong>span')[0];
     expect(subscriptionType.innerHTML).to.equal('Broadband');

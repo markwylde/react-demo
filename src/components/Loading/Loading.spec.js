@@ -1,19 +1,26 @@
 import '../../../test/unit-test-support/setup-test-dom';
 import { expect } from 'chai';
 
-import React from 'react/addons';
+import React from 'react';
+import ReactDOM from 'react-dom';
 import Loading from './Loading';
+
+let element;
 
 describe('Component:Loading', function() {
 
-  afterEach(function(done) {
-    React.unmountComponentAtNode(document.body);
-    document.body.innerHTML = '';
+  beforeEach(() => {
+    document.body.innerHTML = '<div id="app"></div>';
+    element = document.getElementById('app');
+  });
+
+  afterEach(done => {
+    ReactDOM.unmountComponentAtNode(element);
     setTimeout(done);
   });
 
   it('should render a loading spinner', function() {
-    React.render(<Loading />, document.body);
+    ReactDOM.render(<Loading />, element);
 
     let loadingElement = document.querySelectorAll('.loading .fa-spinner');
     expect(loadingElement.length).to.equal(1);

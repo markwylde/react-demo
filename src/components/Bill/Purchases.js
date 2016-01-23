@@ -1,66 +1,61 @@
 import React from 'react';
 import StringManipulation from '../../services/StringManipulation';
 
-export default class Charges extends React.Component {
+const Purchases = props => {
 
-  static propTypes() {
-    return {
-      purchases: React.PropTypes.bool.isRequired
-    };
-  }
+  let rentals = props.purchases && props.purchases.rentals;
+  let buyAndKeep = props.purchases && props.purchases.buyAndKeep;
 
-  static defaultProps() {
-    return {
-      purchases: {
-        rentals: [],
-        buyAndKeep: []
-      }
-    };
-  }
-
-  renderTablePart(items, type) {
-    let tablePart = items.map((item, idx) => {
-      return (
-        <tr key={idx}>
-          <td>{item.title}</td>
-          <td>{type}</td>
-          <td>&pound;{item.cost}</td>
-        </tr>
-      );
-    });
-    return tablePart;
-  }
-
-  render() {
-    let rentals = this.props.purchases && this.props.purchases.rentals;
-    let buyAndKeep = this.props.purchases && this.props.purchases.buyAndKeep;
-
-    return (
-      <div className='purchases'>
-        <h3>Your Purchases</h3>
-        <p>
-          This month you rented <strong>{rentals && rentals.length}</strong>
-        {' ' + StringManipulation.pluralise('movie', rentals && rentals.length)} and
-          bought <strong>{this.props.purchases && this.props.purchases.buyAndKeep.length}</strong> to keep. This cost
-          you a total of <strong>&pound;{this.props.purchases && this.props.purchases.total}</strong>.
-        </p>
-        <table className='table table-bordered table-striped purchases__table'>
-          <thead>
-            <tr>
-              <td>Number Called</td>
-              <td>Duration</td>
-              <td>Cost</td>
+  return (
+    <div className='purchases'>
+      <h3>Your Purchases</h3>
+      <p>
+        This month you rented <strong>{rentals && rentals.length}</strong>
+      {' ' + StringManipulation.pluralise('movie', rentals && rentals.length)} and
+        bought <strong>{props.purchases && props.purchases.buyAndKeep.length}</strong> to keep. This cost
+        you a total of <strong>&pound;{props.purchases && props.purchases.total}</strong>.
+      </p>
+      <table className='table table-bordered table-striped purchases__table'>
+        <thead>
+          <tr>
+            <td>Number Called</td>
+            <td>Duration</td>
+            <td>Cost</td>
+          </tr>
+        </thead>
+        <tbody>
+          {(rentals || []).map((item, idx) =>
+            <tr key={idx}>
+              <td>{item.title}</td>
+              <td>Rental</td>
+              <td>&pound;{item.cost}</td>
             </tr>
-          </thead>
-          <tbody>
-            {this.renderTablePart(rentals || [], 'Rental')}
-            {this.renderTablePart(buyAndKeep || [], 'Buy To Keep')}
-          </tbody>
-        </table>
-      </div>
-    );
+          )}
+
+          {(buyAndKeep || []).map((item, idx) =>
+            <tr key={idx}>
+              <td>{item.title}</td>
+              <td>Buy To Keep</td>
+              <td>&pound;{item.cost}</td>
+            </tr>
+          )}
+        </tbody>
+      </table>
+    </div>
+  );
+};
+
+Purchases.propTypes = () => ({
+  purchases: React.PropTypes.bool.isRequired
+});
+
+Purchases.defaultProps = () => ({
+  purchases: {
+    rentals: [],
+    buyAndKeep: []
   }
+});
 
-}
+Purchases.displayName = 'Purchases';
 
-Charges.displayName = 'Charges';
+export default Purchases;

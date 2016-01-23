@@ -4,7 +4,8 @@ import sinon from 'sinon';
 import { expect } from 'chai';
 import BillPage from './BillPage';
 
-import React from 'react/addons';
+import React from 'react';
+import ReactDOM from 'react-dom';
 
 let sampleBillData = {
   statement: {
@@ -17,11 +18,17 @@ let sampleBillData = {
   }
 };
 
+let element;
+
 describe('View:BillPage', function() {
 
-  afterEach(function(done) {
-    React.unmountComponentAtNode(document.body);
-    document.body.innerHTML = '';
+  beforeEach(() => {
+    document.body.innerHTML = '<div id="app"></div>';
+    element = document.getElementById('app');
+  });
+
+  afterEach(done => {
+    ReactDOM.unmountComponentAtNode(element);
     setTimeout(done);
   });
 
@@ -39,10 +46,10 @@ describe('View:BillPage', function() {
       }
     });
 
-    React.render(<BillPage />, document.body);
+    ReactDOM.render(<BillPage />, element);
     expect(spy.calledOnce).to.be.true;
 
-    React.unmountComponentAtNode(document.body);
+    ReactDOM.unmountComponentAtNode(document.body);
     BillPage.__ResetDependency__('BillStore');
   });
 
@@ -58,7 +65,7 @@ describe('View:BillPage', function() {
     let billPage = new BillPage();
 
     let result = billPage.render();
-    expect(result._store.props.className).to.contain('bill-page');
+    expect(result.props.className).to.contain('bill-page');
   });
 
 });

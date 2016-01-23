@@ -1,7 +1,9 @@
 import '../../../test/unit-test-support/setup-test-dom';
 import { expect } from 'chai';
 
-import React from 'react/addons';
+import React from 'react';
+import ReactDOM from 'react-dom';
+
 import Charges from './Charges';
 
 let sampleCharges = {
@@ -13,11 +15,16 @@ let sampleCharges = {
   }]
 };
 
-describe('Component:Charges', function() {
+let element;
 
-  afterEach(function(done) {
-    React.unmountComponentAtNode(document.body);
-    document.body.innerHTML = '';
+describe('Component:Charges', function() {
+  beforeEach(() => {
+    document.body.innerHTML = '<div id="app"></div>';
+    element = document.getElementById('app');
+  });
+
+  afterEach(done => {
+    ReactDOM.unmountComponentAtNode(element);
     setTimeout(done);
   });
 
@@ -36,7 +43,7 @@ describe('Component:Charges', function() {
   });
 
   it('should display the charges information', function() {
-    React.render(<Charges charges={sampleCharges} />, document.body);
+    ReactDOM.render(<Charges charges={sampleCharges} />, element);
 
     let totalCalls = document.querySelectorAll('.charges>p>strong')[0];
     expect(totalCalls.innerHTML).to.equal('1');
@@ -46,17 +53,15 @@ describe('Component:Charges', function() {
 
     let callsTable = document.querySelectorAll('.charges table>tbody>tr');
     expect(callsTable.length).to.equal(1);
-
   });
 
   it('should populate the calls table correctly', function() {
-    React.render(<Charges charges={sampleCharges} />, document.body);
+    ReactDOM.render(<Charges charges={sampleCharges} />, element);
 
     let firstCallCells = document.querySelectorAll('.charges table>tbody>tr>td');
     expect(firstCallCells[0].textContent).to.equal('07716393769');
     expect(firstCallCells[1].textContent).to.equal('00:23:03');
     expect(firstCallCells[2].textContent).to.equal('£2.13');
-
   });
 
 });

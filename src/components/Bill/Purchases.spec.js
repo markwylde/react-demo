@@ -1,7 +1,8 @@
 import '../../../test/unit-test-support/setup-test-dom';
 import { expect } from 'chai';
 
-import React from 'react/addons';
+import React from 'react';
+import ReactDOM from 'react-dom';
 import Purchases from './Purchases';
 
 let samplePurchases = {
@@ -15,11 +16,17 @@ let samplePurchases = {
   total: 24.97
 };
 
+let element;
+
 describe('Component:Purchases', function() {
 
-  afterEach(function(done) {
-    React.unmountComponentAtNode(document.body);
-    document.body.innerHTML = '';
+  beforeEach(() => {
+    document.body.innerHTML = '<div id="app"></div>';
+    element = document.getElementById('app');
+  });
+
+  afterEach(done => {
+    ReactDOM.unmountComponentAtNode(element);
     setTimeout(done);
   });
 
@@ -39,7 +46,7 @@ describe('Component:Purchases', function() {
   });
 
   it('should display the purchases information', function() {
-    React.render(<Purchases purchases={samplePurchases} />, document.body);
+    ReactDOM.render(<Purchases purchases={samplePurchases} />, element);
 
     let totalRents = document.querySelectorAll('.purchases>p>strong')[0];
     expect(totalRents.textContent).to.equal('1');
@@ -56,7 +63,7 @@ describe('Component:Purchases', function() {
   });
 
   it('should populate the calls table correctly', function() {
-    React.render(<Purchases purchases={samplePurchases} />, document.body);
+    ReactDOM.render(<Purchases purchases={samplePurchases} />, element);
 
     let firstCallCells = document.querySelectorAll('.purchases table>tbody>tr:nth-child(1)>td');
     expect(firstCallCells[0].textContent).to.equal('50 Shades of Grey');

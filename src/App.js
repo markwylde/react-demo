@@ -5,7 +5,8 @@ import './assets/scss/core.scss';
 import BillPage from './views/BillPage';
 import ExternalDataAccess from './utils/ExternalDataAccess.js';
 import React from 'react';
+import ReactDOM from 'react-dom';
 
 ExternalDataAccess.getBillFromServer();
 
-React.render(<BillPage />, document.body);
+ReactDOM.render(<BillPage />, document.getElementById('app'));
