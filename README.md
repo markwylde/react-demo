@@ -1,6 +1,6 @@
-React with Flux Demo
+React with Redux Demo
 ==================
-This is an example of building a React application using the Flux architecture. The app is fully tested, showing how to use Mocha for unit tests and CasperJS for end to end testing.
+This is an example of building a React application using a Redux store. The app is fully tested, showing how to use Mocha for unit tests and CasperJS for end to end testing.
 
 [![Build Status](https://travis-ci.org/markwylde/react-demo.svg?branch=master)](https://travis-ci.org/markwylde/react-demo)
 [![Coverage Status](https://coveralls.io/repos/markwylde/react-demo/badge.svg?branch=master&service=github)](https://coveralls.io/github/markwylde/react-demo?branch=master)
