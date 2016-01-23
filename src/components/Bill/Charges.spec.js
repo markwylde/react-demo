@@ -1,7 +1,7 @@
 import '../../../test/unit-test-support/setup-test-dom';
 import { expect } from 'chai';
 
-import React from 'react';
+import React, { PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 
 import Charges from './Charges';
@@ -30,16 +30,12 @@ describe('Component:Charges', function() {
 
   it('should return the correct propTypes', function() {
     let propTypes = Charges.propTypes();
-    expect(propTypes.charges).to.be.a('function');
+    expect(propTypes.charges).to.equal(PropTypes.bool.isRequired);
   });
 
   it('should return the correct default props', function() {
     let defaultProps = Charges.defaultProps();
-    expect(defaultProps).to.deep.equal({
-      charges: {
-        calls: []
-      }
-    });
+    expect(defaultProps.charges.calls).to.be.an('array');
   });
 
   it('should display the charges information', function() {

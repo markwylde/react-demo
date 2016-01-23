@@ -1,7 +1,7 @@
 import '../../../test/unit-test-support/setup-test-dom';
 import { expect } from 'chai';
 
-import React from 'react';
+import React, { PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 import Purchases from './Purchases';
 
@@ -32,17 +32,13 @@ describe('Component:Purchases', function() {
 
   it('should return the correct propTypes', function() {
     let propTypes = Purchases.propTypes();
-    expect(propTypes.purchases).to.be.a('function');
+    expect(propTypes.purchases).to.equal(PropTypes.bool.isRequired);
   });
 
   it('should return the correct default props', function() {
     let defaultProps = Purchases.defaultProps();
-    expect(defaultProps).to.deep.equal({
-      purchases: {
-        rentals: [],
-        buyAndKeep: []
-      }
-    });
+    expect(defaultProps.purchases.rentals).to.be.an('array');
+    expect(defaultProps.purchases.buyAndKeep).to.an('array');
   });
 
   it('should display the purchases information', function() {

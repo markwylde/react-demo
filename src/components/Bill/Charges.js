@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 const Charges = (props) =>
   <div className='charges'>
@@ -28,7 +28,7 @@ const Charges = (props) =>
   </div>;
 
 Charges.propTypes = () => ({
-  charges: React.PropTypes.bool.isRequired
+  charges: PropTypes.bool.isRequired
 });
 Charges.defaultProps = () => ({
   charges: {

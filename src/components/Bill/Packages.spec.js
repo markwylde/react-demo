@@ -1,7 +1,7 @@
 import '../../../test/unit-test-support/setup-test-dom';
 import { expect } from 'chai';
 
-import React from 'react';
+import React, { PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 import Packages from './Packages';
 
@@ -21,16 +21,12 @@ describe('Component:Packages', function() {
 
   it('should return the correct propTypes', function() {
     let propTypes = Packages.propTypes();
-    expect(propTypes.package).to.be.a('function');
+    expect(propTypes.package).to.equal(PropTypes.bool.isRequired);
   });
 
   it('should return the correct default props', function() {
     let defaultProps = Packages.defaultProps();
-    expect(defaultProps).to.deep.equal({
-      package: {
-        subscriptions: []
-      }
-    });
+    expect(defaultProps.package.subscriptions).to.be.an('array');
   });
 
   it('should display the package information', function() {

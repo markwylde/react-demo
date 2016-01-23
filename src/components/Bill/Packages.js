@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import StringManipulation from '../../services/StringManipulation';
 
 const Packages = props =>
@@ -26,7 +26,7 @@ const Packages = props =>
   </div>;
 
 Packages.propTypes = () => ({
-  package: React.PropTypes.bool.isRequired
+  package: PropTypes.bool.isRequired
 });
 
 Packages.defaultProps = () => ({

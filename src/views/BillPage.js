@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 import Loading from '../components/Loading/Loading';
 import NavBar from '../components/NavBar/NavBar';
@@ -34,7 +34,7 @@ export const BillPage = props => {
 
 BillPage.propTypes = () => ({
   charges: {
-    calls: []
+    calls: PropTypes.array
   }
 });
 

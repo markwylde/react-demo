@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import StringManipulation from '../../services/StringManipulation';
 
 const Purchases = props => {
@@ -46,7 +46,7 @@ const Purchases = props => {
 };
 
 Purchases.propTypes = () => ({
-  purchases: React.PropTypes.bool.isRequired
+  purchases: PropTypes.bool.isRequired
 });
 
 Purchases.defaultProps = () => ({

@@ -3,7 +3,7 @@ import '../../test/unit-test-support/setup-test-dom';
 import { expect } from 'chai';
 import BillPage from './BillPage';
 
-import React from 'react';
+import React, { PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 import Immutable from 'immutable';
 
@@ -47,6 +47,11 @@ describe('View:BillPage', function() {
     ReactDOM.render(<BillPage bill={sampleBillData} />, element);
     let totalCalls = document.querySelectorAll('.bill-total')[0];
     expect(totalCalls.textContent).to.equal('£110.10');
+  });
+
+  it('should return the correct propTypes', function() {
+    let propTypes = BillPage.propTypes();
+    expect(propTypes.charges.calls).to.equal(PropTypes.array);
   });
 
 });
