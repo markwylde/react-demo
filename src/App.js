@@ -16,4 +16,4 @@ const render = () => {
 
 store.subscribe(render);
 
-fetchBill().then(render);
+fetchBill();
