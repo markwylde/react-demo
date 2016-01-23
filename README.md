@@ -12,7 +12,7 @@ This is an example of building a React application using the Flux architecture. 
 -------------
 
 ### Screenshot
-![screenshot of react-demo](http://i.imgur.com/JWHd8sU.png)
+![screenshot of react-demo](http://i.imgur.com/ImbXBcS.png)
 
 ### <i class="icon-file"></i> Installation
 
