@@ -1,16 +1,6 @@
-/* globals browser, expect, $, by */
+/* globals browser, expect by */
 
 describe('show customer bill', function() {
-
-  it('should display the dropdown menu on click', function() {
-    browser.get('/');
-
-    waitForElementToBeVisible(by.css('.navbar'))
-      .then(function() {
-        $('.navbar-nav .dropdown a').click();
-        expect($('.dropdown-menu').isDisplayed()).toBeTruthy();
-      });
-  });
 
   it('should show three packages', function() {
     browser.get('/');
