@@ -6,7 +6,7 @@ function _sendBillData(bill) {
 }
 
 function getBillFromServer() {
-  $.get('https://still-scrubland-9880.herokuapp.com/bill.json')
+  $.get('bill.json')
     .then(data => {
       _sendBillData(data);
     });

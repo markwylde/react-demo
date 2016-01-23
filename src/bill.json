@@ -1,0 +1,62 @@
+{
+  "statement": {
+    "generated": "2016-01-11",
+    "due": "2016-01-25",
+    "period": {
+      "from": "2016-01-26",
+      "to": "2016-02-25"
+    }
+  },
+  "total": 130.10,
+  "package": {
+    "subscriptions": [
+      { "type": "tv", "name": "Television", "cost": 50.00 },
+      { "type": "phone", "name": "Phone Package", "cost": 5.00 },
+      { "type": "broadband", "name": "Broadband", "cost": 16.40 }
+    ],
+    "total": 71.40
+  },
+  "callCharges": {
+    "calls": [
+      { "called": "07716393769", "duration": "00:23:03", "cost": 2.13 },
+      { "called": "07716393769", "duration": "00:23:03", "cost": 2.13 },
+      { "called": "07716393769", "duration": "00:23:03", "cost": 2.13 },
+      { "called": "07716393769", "duration": "00:23:03", "cost": 2.13 },
+      { "called": "07716393769", "duration": "00:23:03", "cost": 2.13 },
+      { "called": "07716393769", "duration": "00:23:03", "cost": 2.13 },
+      { "called": "07716393769", "duration": "00:23:03", "cost": 2.13 },
+      { "called": "07716393769", "duration": "00:23:03", "cost": 2.13 },
+      { "called": "07716393769", "duration": "00:23:03", "cost": 2.13 },
+      { "called": "07716393769", "duration": "00:23:03", "cost": 2.13 },
+      { "called": "07716393769", "duration": "00:23:03", "cost": 2.13 },
+      { "called": "07716393769", "duration": "00:23:03", "cost": 2.13 },
+      { "called": "07716393769", "duration": "00:23:03", "cost": 2.13 },
+      { "called": "07716393769", "duration": "00:23:03", "cost": 2.13 },
+      { "called": "07716393769", "duration": "00:23:03", "cost": 2.13 },
+      { "called": "07716393769", "duration": "00:23:03", "cost": 2.13 },
+      { "called": "07716393769", "duration": "00:23:03", "cost": 2.13 },
+      { "called": "07716393769", "duration": "00:23:03", "cost": 2.13 },
+      { "called": "02074351359", "duration": "00:23:03", "cost": 2.13 },
+      { "called": "02074351359", "duration": "00:23:03", "cost": 2.13 },
+      { "called": "02074351359", "duration": "00:23:03", "cost": 2.13 },
+      { "called": "02074351359", "duration": "00:23:03", "cost": 2.13 },
+      { "called": "02074351359", "duration": "00:23:03", "cost": 2.13 },
+      { "called": "02074351359", "duration": "00:23:03", "cost": 2.13 },
+      { "called": "02074351359", "duration": "00:23:03", "cost": 2.13 },
+      { "called": "02074351359", "duration": "00:23:03", "cost": 2.13 },
+      { "called": "02074351359", "duration": "00:23:03", "cost": 2.13 },
+      { "called": "02074351359", "duration": "00:23:03", "cost": 2.13 }
+    ],
+    "total": 59.64
+  },
+  "store": {
+    "rentals": [
+      { "title": "Terminator", "cost": 4.99 }
+    ],
+    "buyAndKeep": [
+      { "title": "James Bond", "cost": 9.99 },
+      { "title": "Oceans Eleven", "cost": 9.99 }
+    ],
+    "total": 24.97
+  }
+}

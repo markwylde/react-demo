@@ -47,7 +47,7 @@ export default class BillPage extends React.Component {
           </p>
         </div>
         <Packages package={this.state.bill.package} />
-        <Purchases purchases={this.state.bill.skyStore} />
+        <Purchases purchases={this.state.bill.store} />
         <Charges charges={this.state.bill.callCharges} />
       </div>
     );
