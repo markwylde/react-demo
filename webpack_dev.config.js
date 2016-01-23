@@ -16,7 +16,10 @@ module.exports = {
     }, {
       test: /\.js?$/,
       exclude: /(node_modules|bower_components)/,
-      loaders: ['react-hot', 'babel-loader']
+      loader: 'babel-loader',
+      query: {
+        presets: ['react', 'es2015']
+      }
     }, {
       test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
       loader: 'url-loader?limit=10000&minetype=application/font-woff'
@@ -35,7 +38,8 @@ module.exports = {
       jQuery: 'jquery',
       'window.jQuery': 'jquery',
       'root.jQuery': 'jquery'
-    })
+    }),
+    new webpack.HotModuleReplacementPlugin()
   ],
   resolve: {
     extensions: ['', '.webpack.js', '.web.js', '.js'],
