@@ -13,10 +13,10 @@ export const BillPage = props => {
   const {bill} = props;
 
   return (
-    <div className='container bill-page'>
+    <div className="container bill-page">
       <NavBar />
       <h1>Your Statement</h1>
-      <div className='statement-explanation'>
+      <div className="statement-explanation">
         <p>A total amount of <strong className="bill-total">
           &pound;{parseFloat(bill.get('total')).toFixed(2)}
         </strong> is due for your subscription to ACME

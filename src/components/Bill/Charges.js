@@ -1,11 +1,11 @@
 import React, { PropTypes } from 'react';
 
 const Charges = (props) =>
-  <div className='charges'>
+  <div className="charges">
     <h3>Your Charges</h3>
     <p>This month you made a total of <strong>{props.charges && props.charges.calls.length}</strong> calls
     which came to a total of <strong>&pound;{props.charges && props.charges.total}</strong></p>
-    <table className='table table-bordered table-striped charges__table'>
+    <table className="table table-bordered table-striped charges__table">
       <thead>
         <tr>
           <td>Number Called</td>

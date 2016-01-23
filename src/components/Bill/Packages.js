@@ -4,11 +4,11 @@ import StringManipulation from '../../services/StringManipulation';
 const Packages = props =>
   <div>
     <h3>Your Package</h3>
-    <div className='row subscription'>
+    <div className="row subscription">
     {props.package && props.package.subscriptions.map((subscription, idx) => {
       return (
-          <div className='col-sm-4' key={idx} >
-            <div className='alert alert-success'>
+          <div className="col-sm-4" key={idx} >
+            <div className="alert alert-success">
               <p>{subscription.name}</p>
               <p><strong>
                 {StringManipulation.firstLetterUpperCase(subscription.type)}
@@ -19,7 +19,7 @@ const Packages = props =>
       );
     })}
     </div>
-    <div className='alert alert-info'>
+    <div className="alert alert-info">
       The monthly cost for your <strong>ACME Example</strong> package is:
       &pound;{parseFloat(props.package && props.package.total).toFixed(2)}
     </div>

@@ -7,7 +7,7 @@ const Purchases = props => {
   let buyAndKeep = props.purchases && props.purchases.buyAndKeep;
 
   return (
-    <div className='purchases'>
+    <div className="purchases">
       <h3>Your Purchases</h3>
       <p>
         This month you rented <strong>{rentals && rentals.length}</strong>
@@ -15,7 +15,7 @@ const Purchases = props => {
         bought <strong>{props.purchases && props.purchases.buyAndKeep.length}</strong> to keep. This cost
         you a total of <strong>&pound;{props.purchases && props.purchases.total}</strong>.
       </p>
-      <table className='table table-bordered table-striped purchases__table'>
+      <table className="table table-bordered table-striped purchases__table">
         <thead>
           <tr>
             <td>Number Called</td>
