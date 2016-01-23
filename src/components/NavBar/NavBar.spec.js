@@ -19,11 +19,11 @@ describe('Component:NavBar', function() {
     setTimeout(done);
   });
 
-  it('should render a loading spinner', function() {
+  it('should render a navbar', function() {
     ReactDOM.render(<NavBar />, element);
 
     let loadingElement = document.querySelectorAll('.navbar-nav li');
-    expect(loadingElement.length).to.equal(4);
+    expect(loadingElement.length).to.equal(2);
 
   });
 

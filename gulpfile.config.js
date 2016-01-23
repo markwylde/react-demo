@@ -13,6 +13,7 @@ gulp.task('unit_tests', function(cb) {
       instrumenter: Instrumenter,
       includeUntested: true,
       babel: {
+        presets: ['react', 'es2015'],
         plugins: ['rewire']
       },
       skipImports: /\.s{0,1}css$/

@@ -2,7 +2,7 @@ import jquery from '../../test/unit-test-support/mock-jquery-ajax';
 import { expect } from 'chai';
 import sinon from 'sinon';
 
-import ExternalDataAccess from './ExternalDataAccess.js';
+import { downloadBillFromServer } from './ExternalDataAccess.js';
 
 let sampleBillData = {
   statement: {
@@ -21,7 +21,7 @@ describe('Utils:ExternalDataAccess', function() {
 
   it('should grab the bill from ajax endpoint', function() {
     const spy = sinon.spy();
-    ExternalDataAccess.downloadBillFromServer()
+    downloadBillFromServer()
       .then(spy);
 
     expect(spy.calledWith(sampleBillData)).to.be.true;
