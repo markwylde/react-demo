@@ -6,8 +6,7 @@ let createStoreWithMiddleware = applyMiddleware(thunk)(createStore);
 
 const store = createStoreWithMiddleware(rootReducer);
 
-/* istanbul ignore if */
-if (module.hot) {
+if (module.hot || global.hot) {
   /* istanbul ignore next */
   module.hot.accept('../reducers', () => {
     const nextReducer = require('../reducers');

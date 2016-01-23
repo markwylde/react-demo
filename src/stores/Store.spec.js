@@ -7,4 +7,9 @@ describe('Store:BillStore', function() {
     expect(store).to.not.equal(undefined);
   });
 
+  it('should use the hot module', function() {
+    global.hot = true;
+    expect(store).to.not.equal(undefined);
+  });
+
 });
