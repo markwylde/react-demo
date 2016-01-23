@@ -57,5 +57,10 @@ gulp.task('copyIndexFile', function() {
     .pipe(gulp.dest('./dist/'));
 });
 
+gulp.task('copyJSONFile', function() {
+  return gulp.src('./src/bill.json', {base: './src/'})
+    .pipe(gulp.dest('./dist/'));
+});
+
 gulp.task('lint', ['eslint']);
-gulp.task('build', ['eslint', 'webpack', 'copyIndexFile']);
+gulp.task('build', ['eslint', 'webpack', 'copyIndexFile', 'copyJSONFile']);
