@@ -30,7 +30,7 @@ function startLocalWebServer() {
     serve(req, res, done);
   });
 
-  webServer.listen(8089);
+  webServer.listen(8080);
 }
 
 module.exports = hooks;

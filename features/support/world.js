@@ -8,7 +8,7 @@ const TEST_BROWSER = process.env.TEST_BROWSER;
 let service, driver, webdriver, baseUrl;
 
 if (process.env.TEST_WEBSERVER) {
-  baseUrl = 'http://localhost:8089/';
+  baseUrl = 'http://localhost:8080/';
 } else {
   baseUrl = 'http://localhost:3000/';
 }
