@@ -12,4 +12,3 @@ script:
   - TEST_WEBSERVER="dist" TEST_BROWSER="browserstack:IE11:windows" npm run feature_tests
   - TEST_WEBSERVER="dist" TEST_BROWSER="browserstack:chrome:osx" npm run feature_tests
   - TEST_WEBSERVER="dist" TEST_BROWSER="browserstack:firefox:osx" npm run feature_tests
-  - TEST_WEBSERVER="dist" TEST_BROWSER="browserstack:firefox:osx" npm run feature_tests
