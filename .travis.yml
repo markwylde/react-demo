@@ -8,3 +8,4 @@ before_script:
   - sleep 10
 script:
   - npm run test_travis
+  - TEST_BROWSER="browserstack:chrome" npm run cucumber
