@@ -10,3 +10,17 @@ then(/^I should see the total amount of my bill$/, function *() {
   const value = yield element.getAttribute('textContent');
   expect(value).to.equal('£130.10');
 });
+
+then(/^I should see (\d+) subscriptions$/, function *(amount) {
+  const { By } = this.webdriver;
+
+  const elements = yield this.driver.findElements(By.css('.subscription > div'));
+  expect(elements.length).to.equal(parseInt(amount, 0));
+});
+
+then(/^I should see (\d+) (purchases|charges)$/, function *(amount, type) {
+  const { By } = this.webdriver;
+
+  const elements = yield this.driver.findElements(By.css('.' + type + ' tbody tr'));
+  expect(elements.length).to.equal(parseInt(amount, 0));
+});

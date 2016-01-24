@@ -77,8 +77,9 @@ module.exports = function steps() {
 exports.PENDING = PENDING;
 
 function wrap(fn) {
+  const argNames = getParamNames(fn);
   fn = fn || pending;
-  return function() {
+  const wrappedFunction = function() {
     const callback = arguments[arguments.length - 1];
     const world = this;
     const args = [].slice.call(arguments);
@@ -99,6 +100,9 @@ function wrap(fn) {
       }
     );
   };
+
+  Object.defineProperty(wrappedFunction, 'length', {value: argNames.length});
+  return wrappedFunction;
 }
 
 function pending() {
@@ -116,3 +120,14 @@ function once(f) {
     return result;
   };
 };
+
+const STRIP_COMMENTS = /((\/\/.*$)|(\/\*[\s\S]*?\*\/))/mg;
+const ARGUMENT_NAMES = /([^\s,]+)/g;
+function getParamNames(func) {
+  const fnStr = func.toString().replace(STRIP_COMMENTS, '');
+  let result = fnStr.slice(fnStr.indexOf('(') + 1, fnStr.indexOf(')')).match(ARGUMENT_NAMES);
+  if (result === null) {
+    result = [];
+  }
+  return result;
+}
