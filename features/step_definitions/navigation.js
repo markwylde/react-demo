@@ -5,8 +5,10 @@ module.exports = function() {
   this.Given(/^I am visiting the home page$/, function(callback) {
     var driver = this.driver;
 
-    driver.get('http://localhost:3000/');
+    driver.get(this.baseUrl);
 
-    this.waitFor('#app', callback);
+    // setTimeout(function() {
+      this.waitFor('.bill-page', callback);
+    // }, 60000);
   });
 };
