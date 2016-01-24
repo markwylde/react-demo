@@ -4,5 +4,6 @@ Feature: Customer Bill
   So I know how much I need to pay
 
   Scenario: Explaining my packages
-    Given I am visiting the home page
+    Given I am an existing customer with packages
+    When I am visiting the home page
     Then I should see the total amount of my bill
