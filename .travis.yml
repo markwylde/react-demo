@@ -8,15 +8,8 @@ before_script:
 script:
   - npm run test_travis
   - npm run build:skip_tests
+  - cat ~/tmp.log
   - TEST_WEBSERVER="dist" TEST_BROWSER="browserstack:IE11:windows" npm run feature_tests
-  - sleep 10
   - TEST_WEBSERVER="dist" TEST_BROWSER="browserstack:chrome:osx" npm run feature_tests
-  - sleep 10
   - TEST_WEBSERVER="dist" TEST_BROWSER="browserstack:firefox:osx" npm run feature_tests
-  - sleep 10
-  - TEST_WEBSERVER="dist" TEST_BROWSER="browserstack:safari9:osx" npm run feature_tests
-  - sleep 10
-  - TEST_WEBSERVER="dist" TEST_BROWSER="browserstack:ios:iphone" npm run feature_tests
-  - sleep 10
-  - TEST_WEBSERVER="dist" TEST_BROWSER="browserstack:android:galaxy" npm run feature_tests
-  - sleep 10
+  - TEST_WEBSERVER="dist" TEST_BROWSER="browserstack:firefox:osx" npm run feature_tests
