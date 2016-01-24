@@ -1,9 +1,12 @@
 {
+  "parser": "babel-eslint",
+
   "ecmaFeatures": {
     "modules": true,
     "experimental": true,
     "experimentalObjectRestSpread": true,
-    "jsx": true
+    "jsx": true,
+    "generator-star": true
   },
 
   "env": {
