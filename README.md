@@ -12,21 +12,35 @@ This is an example of building a React application using a Redux store. The app 
 
 -------------
 
-### Screenshot
+## Screenshot
 ![screenshot of react-demo](http://i.imgur.com/U4WJsRW.png)
 
-### <i class="icon-file"></i> Installation
+## <i class="icon-file"></i> Installation
 
 **Installation instructions:**
 - Clone this git repository locally and navigate to the folder in your console.
 - Install the node dependancies by running `npm install`
 - Launch the application in dev mode by running `npm run dev`
 
+```bash
+git clone git@github.com:markwylde/react-demo.git
+cd react-demo
+npm install
+npm run dev
+```
+
 **Deployment:**
 - Check your code passes all unit tests by running `npm run unit_tests`
 - Check your code is well structured and formatted to the correct standards `npm run lint`
 - Run `npm run build` to compile the source into *./dist*.
-- Check your code passes all end to end tests `npm run e2e_tests`
+- Check your code passes all feature tests `npm run feature_tests`
+
+```bash
+npm run unit_tests
+npm run lint
+npm run build
+npm run TEST_WEBSERVER="dist" npm run feature_tests
+```
 
 ##Testing:#
 ###Feature Tests##

@@ -13,14 +13,52 @@ if (process.env.TEST_WEBSERVER) {
   baseUrl = 'http://localhost:3000/';
 }
 
-if (TEST_BROWSER === 'browserstack:chrome') {
-  webdriver = bs_webdriver;
+webdriver = bs_webdriver;
+let bsOptions, testEngine;
+switch (TEST_BROWSER) {
+  case 'browserstack:chrome:osx':
+    bsOptions = {
+      browser: 'Chrome',
+      browser_version: '47.0',
+      os: 'OS X',
+      os_version: 'El Capitan',
+      resolution: '1024x768'
+    };
+    testEngine = 'browserstack';
+    break;
 
+  case 'browserstack:firefox:osx':
+    bsOptions = {
+      browser: 'Firefox',
+      browser_version: '43.0',
+      os: 'OS X',
+      os_version: 'El Capitan',
+      resolution: '1024x768'
+    };
+    testEngine = 'browserstack';
+    break;
+
+  case 'browserstack:edge:windows':
+    bsOptions = {
+      browser: 'Edge',
+      browser_version: '12.0',
+      os: 'Windows',
+      os_version: '10',
+      resolution: '1024x768'
+    };
+    testEngine = 'browserstack';
+    break;
+
+  default:
+    testEngine = 'local';
+}
+
+if (testEngine === 'browserstack') {
   const capabilities = {
+    ...bsOptions,
+
     'browserstack.user': process.env.BS_USER,
     'browserstack.key': process.env.BS_KEY,
-
-    browserName: 'chrome',
 
     'browserstack.local': 'true',
     'browserstack.debug': 'true'
@@ -44,7 +82,7 @@ const getDriver = () => driver;
 const getWebDriver = () => webdriver;
 
 function World(callback) {
-  const defaultTimeout = 20000;
+  const defaultTimeout = 60000;
 
   this.webdriver = webdriver;
   this.driver = driver;
