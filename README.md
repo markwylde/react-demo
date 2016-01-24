@@ -63,5 +63,9 @@ npm run feature_tests
 
 - To run the feature tests on browser stack run the following
 ```bash
-TEST_BROWSER="browserstack:chrome" BS_USER="???" BS_KEY="???" npm run feature_tests
+TEST_BROWSER="browserstack:chrome:osx" BS_USER="???" BS_KEY="???" npm run feature_tests
 ```
+- The following test browsers are currently available:
+  - `browserstack:chrome:osx`
+  - `browserstack:firefox:osx`
+  - `browserstack:edge:windows`
