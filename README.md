@@ -28,6 +28,18 @@ This is an example of building a React application using a Redux store. The app 
 - Run `npm run build` to compile the source into *./dist*.
 - Check your code passes all end to end tests `npm run e2e_tests`
 
-### Known Issues
+**Testing:**
+- To run the feature tests locally just run
+```bash
+npm run feature_tests
+```
+- To run the feature tests on browser stack run the following
+```bash
+TEST_BROWSER="browserstack:chrome" BS_USER="???" BS_KEY="???" npm run feature_tests
+```
 
-- E2E tests don't run automatically on Travis as the server needs to be running to make them work. They do run locally so long as you run `npm run dev` first
+- When running the tests locally you wil probably want to test the already running webpack-dev-server. So that is the default behaviour of feature_tests.
+- If you would like to feature test the built directory you can add the `TEST_WEBSERVER` environment variable:
+```bash
+TEST_WEBSERVER="dist" npm run feature_tests
+```

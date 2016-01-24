@@ -17,7 +17,7 @@
     "unit_tests": "./node_modules/.bin/gulp unit_tests",
     "unit_tests_travis": "./node_modules/.bin/gulp unit_tests && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
     "e2e_tests": "./node_modules/protractor/bin/webdriver-manager update && ./node_modules/protractor/bin/protractor protractor.conf.js",
-    "cucumber": "node_modules/.bin/babel-node ./node_modules/.bin/cucumber.js -f pretty",
+    "feature_tests": "node_modules/.bin/babel-node ./node_modules/.bin/cucumber.js -f pretty",
     "test": "npm run lint && npm run unit_tests",
     "test_travis": "npm run lint && npm run unit_tests_travis"
   },

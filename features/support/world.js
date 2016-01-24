@@ -6,12 +6,19 @@ import { path } from 'chromedriver';
 const TEST_BROWSER = process.env.TEST_BROWSER;
 
 let service, driver, webdriver, baseUrl;
+
+if (process.env.TEST_WEBSERVER) {
+  baseUrl = 'http://localhost:8089/';
+} else {
+  baseUrl = 'http://localhost:3000/';
+}
+
 if (TEST_BROWSER === 'browserstack:chrome') {
   webdriver = bs_webdriver;
-  baseUrl = 'http://localhost:8089/';
+
   const capabilities = {
     'browserstack.user': process.env.BS_USER,
-    'browserstack.key': process.env.BS_PASS,
+    'browserstack.key': process.env.BS_KEY,
 
     browserName: 'chrome',
 
@@ -25,7 +32,6 @@ if (TEST_BROWSER === 'browserstack:chrome') {
     .build();
 } else {
   webdriver = se_webdriver;
-  baseUrl = 'http://localhost:3000/';
   service = new chrome.ServiceBuilder(path).build();
   chrome.setDefaultService(service);
 

@@ -5,17 +5,10 @@ let webServer;
 
 function hooks() {
   this.registerHandler('BeforeFeatures', function(event, callback) {
-    let finalhandler = require('finalhandler');
-    let serveStatic = require('serve-static');
-
-    let serve = serveStatic('./dist');
-
-    webServer = http.createServer(function(req, res) {
-      let done = finalhandler(req, res);
-      serve(req, res, done);
-    });
-
-    webServer.listen(8089);
+    if (process.env.TEST_WEBSERVER) {
+      console.log('Starting local test server');
+      startLocalWebServer();
+    }
 
     callback();
   });
@@ -25,5 +18,19 @@ function hooks() {
   });
 
 };
+
+function startLocalWebServer() {
+  let finalhandler = require('finalhandler');
+  let serveStatic = require('serve-static');
+
+  let serve = serveStatic(process.env.TEST_WEBSERVER);
+
+  webServer = http.createServer(function(req, res) {
+    let done = finalhandler(req, res);
+    serve(req, res, done);
+  });
+
+  webServer.listen(8089);
+}
 
 module.exports = hooks;
