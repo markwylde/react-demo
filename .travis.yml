@@ -4,8 +4,7 @@ node_js:
 before_script:
   - wget http://www.browserstack.com/browserstack-local/BrowserStackLocal-linux-x64.zip
   - unzip BrowserStackLocal-linux-x64.zip
-  - ./BrowserStackLocal $BS_PASS localhost,8089,0 > /dev/null &
-  - sleep 10
+  - ./BrowserStackLocal $BS_PASS > /dev/null &
 script:
   - npm run test_travis
   - TEST_BROWSER="browserstack:chrome" npm run cucumber
