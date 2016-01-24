@@ -26,6 +26,7 @@ function startLocalWebServer() {
   let serve = serveStatic(process.env.TEST_WEBSERVER);
 
   webServer = http.createServer(function(req, res) {
+    console.log('server has been hit at: ', req.url);
     let done = finalhandler(req, res);
     serve(req, res, done);
   });

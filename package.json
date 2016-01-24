@@ -12,6 +12,7 @@
   },
   "scripts": {
     "build": "npm run unit_tests && ./node_modules/.bin/gulp build",
+    "build:skip_tests": "./node_modules/.bin/gulp build",
     "lint": "./node_modules/.bin/gulp lint",
     "dev": "webpack-dev-server --hot --inline --config webpack_dev.config.js",
     "unit_tests": "./node_modules/.bin/gulp unit_tests",
