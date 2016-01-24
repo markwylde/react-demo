@@ -66,6 +66,12 @@ npm run feature_tests
 TEST_BROWSER="browserstack:chrome:osx" BS_USER="???" BS_KEY="???" npm run feature_tests
 ```
 - The following test browsers are currently available:
+  - `browserstack:IE11:windows`
+  - `browserstack:IE10:windows`
+  - `browserstack:IE9:windows`
   - `browserstack:chrome:osx`
   - `browserstack:firefox:osx`
-  - `browserstack:edge:windows`
+  - `browserstack:safari9:osx`
+  - `browserstack:safari8:osx`
+  - `browserstack:ios:iphone`
+  - `browserstack:android:galaxy`

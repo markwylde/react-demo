@@ -7,6 +7,7 @@
       "bootstrap",
       "chai",
       "coveralls",
+      "cucumber",
       "css-loader",
       "css-reset",
       "eslint",

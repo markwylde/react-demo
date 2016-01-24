@@ -16,6 +16,39 @@ if (process.env.TEST_WEBSERVER) {
 webdriver = bs_webdriver;
 let bsOptions, testEngine;
 switch (TEST_BROWSER) {
+  case 'browserstack:IE11:windows':
+    bsOptions = {
+      browser: 'IE',
+      browser_version: '11.0',
+      os: 'Windows',
+      os_version: '7',
+      resolution: '1024x768'
+    };
+    testEngine = 'browserstack';
+    break;
+
+  case 'browserstack:IE10:windows':
+    bsOptions = {
+      browser: 'IE',
+      browser_version: '10.0',
+      os: 'Windows',
+      os_version: '7',
+      resolution: '1024x768'
+    };
+    testEngine = 'browserstack';
+    break;
+
+  case 'browserstack:IE9:windows':
+    bsOptions = {
+      browser: 'IE',
+      browser_version: '9.0',
+      os: 'Windows',
+      os_version: '7',
+      resolution: '1024x768'
+    };
+    testEngine = 'browserstack';
+    break;
+
   case 'browserstack:chrome:osx':
     bsOptions = {
       browser: 'Chrome',
@@ -38,13 +71,42 @@ switch (TEST_BROWSER) {
     testEngine = 'browserstack';
     break;
 
-  case 'browserstack:edge:windows':
+  case 'browserstack:safari9:osx':
     bsOptions = {
-      browser: 'Edge',
-      browser_version: '12.0',
-      os: 'Windows',
-      os_version: '10',
+      browser: 'Safari',
+      browser_version: '9.0',
+      os: 'OS X',
+      os_version: 'El Capitan',
       resolution: '1024x768'
+    };
+    testEngine = 'browserstack';
+    break;
+
+  case 'browserstack:safari8:osx':
+    bsOptions = {
+      browser: 'Safari',
+      browser_version: '8.0',
+      os: 'OS X',
+      os_version: 'Yosemite',
+      resolution: '1024x768'
+    };
+    testEngine = 'browserstack';
+    break;
+
+  case 'browserstack:ios:iphone':
+    bsOptions = {
+      browserName: 'iPhone',
+      platform: 'MAC',
+      device: 'iPhone 6S Plus'
+    };
+    testEngine = 'browserstack';
+    break;
+
+  case 'browserstack:android:galaxy':
+    bsOptions = {
+      browserName: 'android',
+      platform: 'ANDROID',
+      device: 'Samsung Galaxy S5'
     };
     testEngine = 'browserstack';
     break;
@@ -59,6 +121,8 @@ if (testEngine === 'browserstack') {
 
     'browserstack.user': process.env.BS_USER,
     'browserstack.key': process.env.BS_KEY,
+
+    'project': 'React Demo',
 
     'browserstack.local': 'true',
     'browserstack.debug': 'true'
@@ -82,7 +146,7 @@ const getDriver = () => driver;
 const getWebDriver = () => webdriver;
 
 function World(callback) {
-  const defaultTimeout = 60000;
+  const defaultTimeout = 30000;
 
   this.webdriver = webdriver;
   this.driver = driver;

@@ -16,10 +16,7 @@ module.exports = {
     }, {
       test: /\.js?$/,
       exclude: /(node_modules|bower_components)/,
-      loader: 'babel-loader',
-      query: {
-        presets: ['react', 'es2015']
-      }
+      loader: 'babel-loader'
     }, {
       test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
       loader: 'url-loader?limit=10000&minetype=application/font-woff'
