@@ -10,13 +10,19 @@ script:
   - npm run build:skip_tests
   - TEST_WEBSERVER="dist" TEST_BROWSER="browserstack:IE11:windows" npm run feature_tests
   - cat ~/tmp.log
+  - wget http://localhost:8089/
   - TEST_WEBSERVER="dist" TEST_BROWSER="browserstack:chrome:osx" npm run feature_tests
   - cat ~/tmp.log
+  - wget http://localhost:8089/
   - TEST_WEBSERVER="dist" TEST_BROWSER="browserstack:firefox:osx" npm run feature_tests
   - cat ~/tmp.log
+  - wget http://localhost:8089/
   - TEST_WEBSERVER="dist" TEST_BROWSER="browserstack:safari9:osx" npm run feature_tests
   - cat ~/tmp.log
+  - wget http://localhost:8089/
   - TEST_WEBSERVER="dist" TEST_BROWSER="browserstack:ios:iphone" npm run feature_tests
   - cat ~/tmp.log
+  - wget http://localhost:8089/
   - TEST_WEBSERVER="dist" TEST_BROWSER="browserstack:android:galaxy" npm run feature_tests
   - cat ~/tmp.log
+  - wget http://localhost:8089/
