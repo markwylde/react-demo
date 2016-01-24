@@ -7,4 +7,5 @@ before_script:
   - ./BrowserStackLocal $BS_PASS > /dev/null &
 script:
   - npm run test_travis
+  - npm run build
   - TEST_BROWSER="browserstack:chrome" npm run cucumber
