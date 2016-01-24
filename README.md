@@ -28,18 +28,26 @@ This is an example of building a React application using a Redux store. The app 
 - Run `npm run build` to compile the source into *./dist*.
 - Check your code passes all end to end tests `npm run e2e_tests`
 
-**Testing:**
+##Testing:#
+###Feature Tests##
+The feature test runner comes with the ability to start a local webserver. When running the tests 
+locally you wil probably want to test the already running webpack-dev-server. So that is the 
+default behaviour of feature_tests.
+- If you would like to feature test the build (`dist`) directory you can add the `TEST_WEBSERVER` 
+environment variable:
+```bash
+TEST_WEBSERVER="dist" npm run feature_tests
+```
+####Locally####
 - To run the feature tests locally just run
 ```bash
 npm run feature_tests
 ```
+
+####BrowserStack####
+> Make sure you have the [BrowserStackLocal](https://www.browserstack.com/local-testing#command-line) service running
+
 - To run the feature tests on browser stack run the following
 ```bash
 TEST_BROWSER="browserstack:chrome" BS_USER="???" BS_KEY="???" npm run feature_tests
-```
-
-- When running the tests locally you wil probably want to test the already running webpack-dev-server. So that is the default behaviour of feature_tests.
-- If you would like to feature test the built directory you can add the `TEST_WEBSERVER` environment variable:
-```bash
-TEST_WEBSERVER="dist" npm run feature_tests
 ```
