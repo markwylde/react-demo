@@ -34,9 +34,10 @@ if (TEST_BROWSER === 'browserstack:chrome') {
     .build();
 }
 
-export const getDriver = () => driver;
+const getDriver = () => driver;
+const getWebDriver = () => webdriver;
 
-export function World(callback) {
+function World(callback) {
   const defaultTimeout = 20000;
 
   this.webdriver = webdriver;
@@ -51,4 +52,17 @@ export function World(callback) {
       return res;
     }, waitTimeout);
   };
+};
+
+module.exports = function() {
+  if (this) {
+    this.World = World;
+    this.getDriver = getDriver;
+    this.getWebDriver = getWebDriver;
+  } else {
+    return {
+      getDriver,
+      getWebDriver
+    };
+  }
 };

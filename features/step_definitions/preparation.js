@@ -1,8 +1,8 @@
-module.exports = function() {
+import steps from '../support/asygen';
 
-  this.World = require('../support/world.js').World;
+const { when } = module.exports = steps();
 
-  this.Given(/^I am an existing customer with packages$/, function(callback) {
-    callback();
-  });
-};
+when(/^I am an existing customer with packages$/, function *() {
+
+});
+

@@ -1,19 +1,12 @@
-var expect = require('chai').expect;
+import { expect } from 'chai';
+import steps from '../support/asygen';
 
-module.exports = function() {
+const { then } = module.exports = steps();
 
-  this.World = require('../support/world.js').World;
+then(/^I should see the total amount of my bill$/, function *() {
+  const { By } = this.webdriver;
 
-  this.Given(/^I should see the total amount of my bill$/, function(callback) {
-    var driver = this.driver;
-    var by = this.webdriver.By;
-
-    driver.findElement(by.css('.bill-total')).then(function(element) {
-      element.getAttribute('textContent').then(function(val) {
-        expect(val).to.equal('£130.10');
-        callback();
-      });
-    });
-
-  });
-};
+  const element = yield this.driver.findElement(By.css('.bill-total'));
+  const value = yield element.getAttribute('textContent');
+  expect(value).to.equal('£130.10');
+});

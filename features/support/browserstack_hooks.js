@@ -1,5 +1,5 @@
 import http from 'http';
-import { getDriver } from './world.js';
+import world from './world.js';
 
 let webServer;
 
@@ -21,7 +21,7 @@ function hooks() {
   });
 
   this.registerHandler('AfterFeatures', function(event, callback) {
-    getDriver().quit().then(callback);
+    world().getDriver().quit().then(callback);
   });
 
 };

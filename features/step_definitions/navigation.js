@@ -1,9 +1,8 @@
-module.exports = function() {
+import steps from '../support/asygen';
 
-  this.World = require('../support/world.js').World;
+const { when } = module.exports = steps();
 
-  this.Given(/^I am visiting the home page$/, function(callback) {
-    this.driver.get(this.baseUrl);
-    this.waitFor('.bill-page', callback);
-  });
-};
+when(/^I am visiting the home page$/, function *() {
+  this.driver.get(this.baseUrl);
+  yield this.waitFor('.bill-page');
+});

@@ -1,7 +1,7 @@
 {
   "ecmaFeatures": {
     "modules": true,
-    "experimentalObjectRestSpread": true,
+    "experimental": true,
     "jsx": true
   },
 

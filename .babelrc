@@ -4,6 +4,7 @@
     "react"
   ],
   "plugins": [
-    "babel-plugin-rewire"
+    "babel-plugin-rewire",
+    "transform-async-to-generator"
   ]
 }
