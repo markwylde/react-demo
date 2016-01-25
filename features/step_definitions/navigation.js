@@ -1,8 +1,8 @@
-import steps from '../support/asygen';
+module.exports = function() {
 
-const { when } = module.exports = steps();
+  this.When(/^I am visiting the home page$/, async function() {
+    this.driver.get(this.baseUrl);
+    await this.waitFor('.bill-page');
+  });
 
-when(/^I am visiting the home page$/, async function() {
-  this.driver.get(this.baseUrl);
-  await this.waitFor('.bill-page');
-});
+};

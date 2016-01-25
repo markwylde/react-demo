@@ -1,8 +1,7 @@
-import steps from '../support/asygen';
+module.exports = function() {
 
-const { when } = module.exports = steps();
+  this.When(/^I am an existing customer with packages$/, async function() {
 
-when(/^I am an existing customer with packages$/, async function() {
+  });
 
-});
-
+};
