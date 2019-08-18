@@ -4,11 +4,10 @@ This is an example of building a React application using a Redux store. The app 
 
 [![Build Status](https://travis-ci.org/markwylde/react-demo.svg?branch=master)](https://travis-ci.org/markwylde/react-demo)
 [![Coverage Status](https://coveralls.io/repos/markwylde/react-demo/badge.svg?branch=master&service=github)](https://coveralls.io/github/markwylde/react-demo?branch=master)
-[![bitHound Score](https://www.bithound.io/github/markwylde/react-demo/badges/score.svg)](https://www.bithound.io/github/markwylde/react-demo)
 [![Dependancies Check](https://david-dm.org/markwylde/react-demo.svg)](https://david-dm.org/markwylde/react-demo)
 [![Node.js](https://img.shields.io/badge/node.js-4-lightgrey.svg)](https://nodejs.org/)
 [![BrowserStack](https://img.shields.io/badge/browserStack-auto-lightgrey.svg)](https://browserstack.com/)
-[![MIT License](http://imgh.us/license-mit.svg)](https://opensource.org/licenses/MIT)
+[![GitHub](https://img.shields.io/github/license/markwylde/node-mini-migrations)](https://github.com/markwylde/node-mini-migrations/blob/master/LICENSE)
 
 -------------
 
